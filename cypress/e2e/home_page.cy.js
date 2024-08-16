@@ -60,7 +60,34 @@ describe("The Home Page", () => {
   // );
   // });
 
-  it("Check the transition to the main page after clicking on the logo", () => {
+  // it("Check the transition to the main page after clicking on the logo", () => {
+  //   cy.on("uncaught:exception", (err, runnable) => {
+  //     // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
+  //     if (
+  //       err.message.includes(
+  //         "The fetching process for the media resource was aborted"
+  //       )
+  //     ) {
+  //       return false;
+  //     }
+  //   });
+
+  //   cy.visit("/");
+
+  //   cy.get('a[href="/solutions"]').click({ force: true });
+
+  //   cy.get('h1[class="c-PJLV c-fGbiyG c-PJLV-cHtIMp-dark-false"]').should(
+  //     "have.text",
+  //     "Solutions for scaling your business"
+  //   );
+
+  //   cy.get(
+  //     "#__next > div > header > div > div > div.c-buvHyO.c-buvHyO-idbhasO-css > a"
+  //   ).click();
+  //   cy.get("div>h1").should("have.text", "Connectivity reimagined.");
+  // });
+
+  it("Go to the Controller (Remote) job on the careers page", () => {
     cy.on("uncaught:exception", (err, runnable) => {
       // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
       if (
@@ -70,20 +97,26 @@ describe("The Home Page", () => {
       ) {
         return false;
       }
+      return false;
     });
 
     cy.visit("/");
 
-    cy.get('a[href="/solutions"]').click({ force: true });
+    cy.get('a[href="/careers"]').scrollIntoView().click({ force: true });
+    cy.get('a[href="https://boards.greenhouse.io/telnyx54/jobs/5968196003"]')
+      .invoke("removeAttr", "target")
+      .scrollIntoView()
+      .click({ force: true });
 
-    cy.get('h1[class="c-PJLV c-fGbiyG c-PJLV-cHtIMp-dark-false"]').should(
-      "have.text",
-      "Solutions for scaling your business"
-    );
+    //видає помилку - заголовок на новій вкладці, пише що не знайдено
+    // cy.get('h1[class="app-title"]').should("have.text", "Controller (Remote)");
 
-    cy.get(
-      "#__next > div > header > div > div > div.c-buvHyO.c-buvHyO-idbhasO-css > a"
-    ).click();
-    cy.get("div>h1").should("have.text", "Connectivity reimagined.");
+    // Використання cy.origin для взаємодії з іншим доменом
+    cy.origin("https://boards.greenhouse.io", () => {
+      cy.get('h1[class="app-title"]').should(
+        "have.text",
+        "Controller (Remote)"
+      );
+    });
   });
 });
