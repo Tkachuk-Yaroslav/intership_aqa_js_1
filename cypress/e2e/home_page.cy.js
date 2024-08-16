@@ -38,7 +38,29 @@ describe("The Home Page", () => {
   //   );
   // });
 
-  it("Make a transition to the Solutions page", () => {
+  // it("Make a transition to the Solutions page", () => {
+  //   cy.on("uncaught:exception", (err, runnable) => {
+  //     // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
+  //     if (
+  //       err.message.includes(
+  //         "The fetching process for the media resource was aborted"
+  //       )
+  //     ) {
+  //       return false;
+  //     }
+  //   });
+
+  //   cy.visit("/");
+
+  // cy.get('a[href="/solutions"]').click({ force: true });
+
+  // cy.get('h1[class="c-PJLV c-fGbiyG c-PJLV-cHtIMp-dark-false"]').should(
+  //   "have.text",
+  //   "Solutions for scaling your business"
+  // );
+  // });
+
+  it("Check the transition to the main page after clicking on the logo", () => {
     cy.on("uncaught:exception", (err, runnable) => {
       // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
       if (
@@ -58,5 +80,10 @@ describe("The Home Page", () => {
       "have.text",
       "Solutions for scaling your business"
     );
+
+    cy.get(
+      "#__next > div > header > div > div > div.c-buvHyO.c-buvHyO-idbhasO-css > a"
+    ).click();
+    cy.get("div>h1").should("have.text", "Connectivity reimagined.");
   });
 });
