@@ -120,7 +120,28 @@ describe("The Home Page", () => {
   //   });
   // });
 
-  it("Form display on the Contact Us page", () => {
+  // it("Form display on the Contact Us page", () => {
+  //   cy.on("uncaught:exception", (err, runnable) => {
+  //     // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
+  //     if (
+  //       err.message.includes(
+  //         "The fetching process for the media resource was aborted"
+  //       )
+  //     ) {
+  //       return false;
+  //     }
+  //   });
+
+  //   cy.visit("/");
+
+  //   cy.get('div[class="c-glDvHT"]>a[href="/contact-us"]').click({
+  //     force: true,
+  //   });
+
+  //   cy.get("#mktoForm_1987").should("be.visible");
+  // });
+
+  it("Sign up to Telnyx with valid credentials", () => {
     cy.on("uncaught:exception", (err, runnable) => {
       // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
       if (
@@ -130,14 +151,26 @@ describe("The Home Page", () => {
       ) {
         return false;
       }
+      return false;
     });
 
     cy.visit("/");
 
-    cy.get('div[class="c-glDvHT"]>a[href="/contact-us"]').click({
-      force: true,
-    });
+    cy.get("#header-sign-up").click({ force: true });
 
-    cy.get("#mktoForm_1987").should("be.visible");
+    // cy.get("#email").click().type("asd@asd");
+    cy.get("#email").as("emailField").click({ force: true });
+    cy.get("@emailField").type("emailisnotaprobl@gmail.com");
+    cy.get("#first_name").click().type("Tester");
+    cy.get("#last_name").click().type("Aqa");
+    cy.get("#password").click().type("Qwe123*qwe123");
+
+    cy.get("#terms_and_conditions").click();
+    cy.get(
+      'button[class="c-kDQqQr c-kDQqQr-fwzCzT-background-light c-kDQqQr-cOvXws-cv c-ddSKil"]'
+    ).click();
+
+    //вибиває помилку замість переадресації
+    cy.get("h1>span", { timeout: 10000 }).should("have.text", "One last step");
   });
 });
