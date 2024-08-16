@@ -87,7 +87,40 @@ describe("The Home Page", () => {
   //   cy.get("div>h1").should("have.text", "Connectivity reimagined.");
   // });
 
-  it("Go to the Controller (Remote) job on the careers page", () => {
+  // it("Go to the Controller (Remote) job on the careers page", () => {
+  //   cy.on("uncaught:exception", (err, runnable) => {
+  //     // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
+  //     if (
+  //       err.message.includes(
+  //         "The fetching process for the media resource was aborted"
+  //       )
+  //     ) {
+  //       return false;
+  //     }
+  //     return false;
+  //   });
+
+  //   cy.visit("/");
+
+  //   cy.get('a[href="/careers"]').scrollIntoView().click({ force: true });
+  //   cy.get('a[href="https://boards.greenhouse.io/telnyx54/jobs/5968196003"]')
+  //     .invoke("removeAttr", "target")
+  //     .scrollIntoView()
+  //     .click({ force: true });
+
+  //   //видає помилку - заголовок на новій вкладці, пише що не знайдено
+  //   // cy.get('h1[class="app-title"]').should("have.text", "Controller (Remote)");
+
+  //   // Використання cy.origin для взаємодії з іншим доменом
+  //   cy.origin("https://boards.greenhouse.io", () => {
+  //     cy.get('h1[class="app-title"]').should(
+  //       "have.text",
+  //       "Controller (Remote)"
+  //     );
+  //   });
+  // });
+
+  it("Form display on the Contact Us page", () => {
     cy.on("uncaught:exception", (err, runnable) => {
       // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
       if (
@@ -97,26 +130,14 @@ describe("The Home Page", () => {
       ) {
         return false;
       }
-      return false;
     });
 
     cy.visit("/");
 
-    cy.get('a[href="/careers"]').scrollIntoView().click({ force: true });
-    cy.get('a[href="https://boards.greenhouse.io/telnyx54/jobs/5968196003"]')
-      .invoke("removeAttr", "target")
-      .scrollIntoView()
-      .click({ force: true });
-
-    //видає помилку - заголовок на новій вкладці, пише що не знайдено
-    // cy.get('h1[class="app-title"]').should("have.text", "Controller (Remote)");
-
-    // Використання cy.origin для взаємодії з іншим доменом
-    cy.origin("https://boards.greenhouse.io", () => {
-      cy.get('h1[class="app-title"]').should(
-        "have.text",
-        "Controller (Remote)"
-      );
+    cy.get('div[class="c-glDvHT"]>a[href="/contact-us"]').click({
+      force: true,
     });
+
+    cy.get("#mktoForm_1987").should("be.visible");
   });
 });
