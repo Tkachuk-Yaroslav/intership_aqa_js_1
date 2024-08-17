@@ -174,7 +174,43 @@ describe("The Home Page", () => {
   //   cy.get("h1>span", { timeout: 10000 }).should("have.text", "One last step");
   // });
 
-  it("Add the product to the cart on the store page", () => {
+  // it("Add the product to the cart on the store page", () => {
+  //   cy.on("uncaught:exception", (err, runnable) => {
+  //     // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
+  //     if (
+  //       err.message.includes(
+  //         "The fetching process for the media resource was aborted"
+  //       )
+  //     ) {
+  //       return false;
+  //     }
+  //     return false;
+  //   });
+
+  //   cy.visit("/");
+
+  //   cy.get('a[href="https://shop.telnyx.com"]')
+  //     .invoke("removeAttr", "target")
+  //     .click({ force: true });
+
+  //   // Без використання cy.origin()
+  //   cy.get(
+  //     "#shopify-section-template--14828910772302__featured-collection-0 > div > div > div > h2"
+  //   ).scrollIntoView();
+
+  //   cy.get(
+  //     "#quick-add-template--14828910772302__featured-collection-06960027533390-submit"
+  //   ).click();
+
+  //   cy.get("cart-drawer.drawer.animate.active").should("be.visible");
+  //   cy.get(
+  //     'td[class="cart-item__details"]>a[href="/products/telnyx-classic-hat?variant=40466321965134"]'
+  //   )
+  //     .should("be.visible")
+  //     .and("have.text", "Telnyx Classic Hat");
+  // });
+
+  it("Delete the product from the cart on the store page", () => {
     cy.on("uncaught:exception", (err, runnable) => {
       // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
       if (
@@ -209,25 +245,12 @@ describe("The Home Page", () => {
       .should("be.visible")
       .and("have.text", "Telnyx Classic Hat");
 
-    // cy.origin("https://shop.telnyx.com/", () => {
-    //   cy.get(
-    //     "#shopify-section-template--14828910772302__featured-collection-0 > div > div > div > h2"
-    //   ).scrollIntoView();
-    // });
+    cy.get("#CartDrawer-Remove-1>button").click();
 
-    // cy.get("#email").click().type("asd@asd");
-    // cy.get("#email").as("emailField").click({ force: true });
-    // cy.get("@emailField").type("emailisnotaprobl@gmail.com");
-    // cy.get("#first_name").click().type("Tester");
-    // cy.get("#last_name").click().type("Aqa");
-    // cy.get("#password").click().type("Qwe123*qwe123");
+    cy.get('div[class="drawer__inner-empty"]').should("be.visible");
 
-    // cy.get("#terms_and_conditions").click();
-    // cy.get(
-    //   'button[class="c-kDQqQr c-kDQqQr-fwzCzT-background-light c-kDQqQr-cOvXws-cv c-ddSKil"]'
-    // ).click();
-
-    //вибиває помилку замість переадресації
-    // cy.get("h1>span", { timeout: 10000 }).should("have.text", "One last step");
+    cy.get('h2[class="cart__empty-text"]')
+      .should("be.visible")
+      .and("have.text", "Your cart is empty");
   });
 });
