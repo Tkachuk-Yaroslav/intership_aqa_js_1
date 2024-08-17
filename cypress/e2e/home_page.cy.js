@@ -5,20 +5,46 @@
 // });
 
 describe("The Home Page", () => {
+  //test case 1
   // it("Sign up to Telnyx with not valid email", () => {
-  //   cy.on("uncaught:exception", (err, runnable) => {
-  //     // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
-  //     if (
-  //       err.message.includes(
-  //         "The fetching process for the media resource was aborted"
-  //       )
-  //     ) {
-  //       return false;
-  //     }
+  //   // cy.on("uncaught:exception", (err, runnable) => {
+  //   //   // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
+  //   //   if (
+  //   //     err.message.includes(
+  //   //       "The fetching process for the media resource was aborted"
+  //   //     )
+  //   //   ) {
+  //   //     return false;
+  //   //   }
+  //   //   return false;
+  //   // });
+
+  //   cy.intercept("POST", "**/collect", { statusCode: 204, body: {} });
+  //   cy.intercept("GET", "**/geolocation.onetrust.com/**", {
+  //     statusCode: 204,
+  //     body: {},
   //   });
+  //   cy.intercept("POST", "**/notify.bugsnag.com/**", {
+  //     statusCode: 204,
+  //     body: {},
+  //   });
+  //   cy.intercept("POST", "**/sessions.bugsnag.com/**", {
+  //     statusCode: 204,
+  //     body: {},
+  //   });
+  //   cy.intercept("GET", "**/ipv6.6sc.co/**", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/ingest/v1/web/start", {
+  //     statusCode: 204,
+  //     body: {},
+  //   });
+  //   cy.intercept("POST", "**/collect", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/registrations", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/verify-captcha", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/api2/reload", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/api2/clr", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/api2/bcn", { statusCode: 204, body: {} });
 
   //   cy.visit("/");
-
   //   cy.get("#header-sign-up").click({ force: true });
 
   //   // cy.get("#email").click().type("asd@asd");
@@ -38,39 +64,91 @@ describe("The Home Page", () => {
   //   );
   // });
 
+  // // //test case 2
   // it("Make a transition to the Solutions page", () => {
-  //   cy.on("uncaught:exception", (err, runnable) => {
-  //     // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
-  //     if (
-  //       err.message.includes(
-  //         "The fetching process for the media resource was aborted"
-  //       )
-  //     ) {
-  //       return false;
-  //     }
+  //   // cy.on("uncaught:exception", (err, runnable) => {
+  //   //   // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
+  //   //   if (
+  //   //     err.message.includes(
+  //   //       "The fetching process for the media resource was aborted"
+  //   //     )
+  //   //   ) {
+  //   //     return false;
+  //   //   }
+  //   // });
+
+  //   cy.intercept("POST", "**/collect", { statusCode: 204, body: {} });
+  //   cy.intercept("GET", "**/geolocation.onetrust.com/**", {
+  //     statusCode: 204,
+  //     body: {},
   //   });
+  //   cy.intercept("POST", "**/notify.bugsnag.com/**", {
+  //     statusCode: 204,
+  //     body: {},
+  //   });
+  //   cy.intercept("POST", "**/sessions.bugsnag.com/**", {
+  //     statusCode: 204,
+  //     body: {},
+  //   });
+  //   cy.intercept("GET", "**/ipv6.6sc.co/**", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/ingest/v1/web/start", {
+  //     statusCode: 204,
+  //     body: {},
+  //   });
+  //   cy.intercept("POST", "**/collect", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/registrations", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/verify-captcha", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/api2/reload", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/api2/clr", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/api2/bcn", { statusCode: 204, body: {} });
 
   //   cy.visit("/");
 
-  // cy.get('a[href="/solutions"]').click({ force: true });
+  //   cy.get('a[href="/solutions"]').click({ force: true });
 
-  // cy.get('h1[class="c-PJLV c-fGbiyG c-PJLV-cHtIMp-dark-false"]').should(
-  //   "have.text",
-  //   "Solutions for scaling your business"
-  // );
+  //   cy.get('h1[class="c-PJLV c-fGbiyG c-PJLV-cHtIMp-dark-false"]').should(
+  //     "have.text",
+  //     "Solutions for scaling your business"
+  //   );
   // });
 
+  // //test case 3
   // it("Check the transition to the main page after clicking on the logo", () => {
-  //   cy.on("uncaught:exception", (err, runnable) => {
-  //     // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
-  //     if (
-  //       err.message.includes(
-  //         "The fetching process for the media resource was aborted"
-  //       )
-  //     ) {
-  //       return false;
-  //     }
+  // //   cy.on("uncaught:exception", (err, runnable) => {
+  // //     // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
+  // //     if (
+  // //       err.message.includes(
+  // //         "The fetching process for the media resource was aborted"
+  // //       )
+  // //     ) {
+  // //       return false;
+  // //     }
+  // //   });
+
+  //   cy.intercept("POST", "**/collect", { statusCode: 204, body: {} });
+  //   cy.intercept("GET", "**/geolocation.onetrust.com/**", {
+  //     statusCode: 204,
+  //     body: {},
   //   });
+  //   cy.intercept("POST", "**/notify.bugsnag.com/**", {
+  //     statusCode: 204,
+  //     body: {},
+  //   });
+  //   cy.intercept("POST", "**/sessions.bugsnag.com/**", {
+  //     statusCode: 204,
+  //     body: {},
+  //   });
+  //   cy.intercept("GET", "**/ipv6.6sc.co/**", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/ingest/v1/web/start", {
+  //     statusCode: 204,
+  //     body: {},
+  //   });
+  //   cy.intercept("POST", "**/collect", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/registrations", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/verify-captcha", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/api2/reload", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/api2/clr", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/api2/bcn", { statusCode: 204, body: {} });
 
   //   cy.visit("/");
 
@@ -87,18 +165,44 @@ describe("The Home Page", () => {
   //   cy.get("div>h1").should("have.text", "Connectivity reimagined.");
   // });
 
+  // //test case 4
   // it("Go to the Controller (Remote) job on the careers page", () => {
-  //   cy.on("uncaught:exception", (err, runnable) => {
-  //     // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
-  //     if (
-  //       err.message.includes(
-  //         "The fetching process for the media resource was aborted"
-  //       )
-  //     ) {
-  //       return false;
-  //     }
-  //     return false;
+  // //   cy.on("uncaught:exception", (err, runnable) => {
+  // //     // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
+  // //     if (
+  // //       err.message.includes(
+  // //         "The fetching process for the media resource was aborted"
+  // //       )
+  // //     ) {
+  // //       return false;
+  // //     }
+  // //     return false;
+  // //   });
+
+  //   cy.intercept("POST", "**/collect", { statusCode: 204, body: {} });
+  //   cy.intercept("GET", "**/geolocation.onetrust.com/**", {
+  //     statusCode: 204,
+  //     body: {},
   //   });
+  //   cy.intercept("POST", "**/notify.bugsnag.com/**", {
+  //     statusCode: 204,
+  //     body: {},
+  //   });
+  //   cy.intercept("POST", "**/sessions.bugsnag.com/**", {
+  //     statusCode: 204,
+  //     body: {},
+  //   });
+  //   cy.intercept("GET", "**/ipv6.6sc.co/**", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/ingest/v1/web/start", {
+  //     statusCode: 204,
+  //     body: {},
+  //   });
+  //   cy.intercept("POST", "**/collect", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/registrations", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/verify-captcha", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/api2/reload", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/api2/clr", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/api2/bcn", { statusCode: 204, body: {} });
 
   //   cy.visit("/");
 
@@ -112,25 +216,51 @@ describe("The Home Page", () => {
   //   // cy.get('h1[class="app-title"]').should("have.text", "Controller (Remote)");
 
   //   // Використання cy.origin для взаємодії з іншим доменом
-  // cy.origin("https://boards.greenhouse.io", () => {
-  //   cy.get('h1[class="app-title"]').should(
-  //     "have.text",
-  //     "Controller (Remote)"
-  //   );
-  // });
+  //   cy.origin("https://boards.greenhouse.io", () => {
+  //     cy.get('h1[class="app-title"]').should(
+  //       "have.text",
+  //       "Controller (Remote)"
+  //     );
+  //   });
   // });
 
+  // //teest case 5
   // it("Form display on the Contact Us page", () => {
-  //   cy.on("uncaught:exception", (err, runnable) => {
-  //     // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
-  //     if (
-  //       err.message.includes(
-  //         "The fetching process for the media resource was aborted"
-  //       )
-  //     ) {
-  //       return false;
-  //     }
+  // //   cy.on("uncaught:exception", (err, runnable) => {
+  // //     // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
+  // //     if (
+  // //       err.message.includes(
+  // //         "The fetching process for the media resource was aborted"
+  // //       )
+  // //     ) {
+  // //       return false;
+  // //     }
+  // //   });
+
+  //   cy.intercept("POST", "**/collect", { statusCode: 204, body: {} });
+  //   cy.intercept("GET", "**/geolocation.onetrust.com/**", {
+  //     statusCode: 204,
+  //     body: {},
   //   });
+  //   cy.intercept("POST", "**/notify.bugsnag.com/**", {
+  //     statusCode: 204,
+  //     body: {},
+  //   });
+  //   cy.intercept("POST", "**/sessions.bugsnag.com/**", {
+  //     statusCode: 204,
+  //     body: {},
+  //   });
+  //   cy.intercept("GET", "**/ipv6.6sc.co/**", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/ingest/v1/web/start", {
+  //     statusCode: 204,
+  //     body: {},
+  //   });
+  //   cy.intercept("POST", "**/collect", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/registrations", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/verify-captcha", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/api2/reload", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/api2/clr", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/api2/bcn", { statusCode: 204, body: {} });
 
   //   cy.visit("/");
 
@@ -141,18 +271,44 @@ describe("The Home Page", () => {
   //   cy.get("#mktoForm_1987").should("be.visible");
   // });
 
+  // //test case 6
   // it("Sign up to Telnyx with valid credentials", () => {
-  //   cy.on("uncaught:exception", (err, runnable) => {
-  //     // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
-  //     if (
-  //       err.message.includes(
-  //         "The fetching process for the media resource was aborted"
-  //       )
-  //     ) {
-  //       return false;
-  //     }
-  //     return false;
+  // //   cy.on("uncaught:exception", (err, runnable) => {
+  // //     // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
+  // //     if (
+  // //       err.message.includes(
+  // //         "The fetching process for the media resource was aborted"
+  // //       )
+  // //     ) {
+  // //       return false;
+  // //     }
+  // //     return false;
+  // //   });
+
+  //   cy.intercept("POST", "**/collect", { statusCode: 204, body: {} });
+  //   cy.intercept("GET", "**/geolocation.onetrust.com/**", {
+  //     statusCode: 204,
+  //     body: {},
   //   });
+  //   cy.intercept("POST", "**/notify.bugsnag.com/**", {
+  //     statusCode: 204,
+  //     body: {},
+  //   });
+  //   cy.intercept("POST", "**/sessions.bugsnag.com/**", {
+  //     statusCode: 204,
+  //     body: {},
+  //   });
+  //   cy.intercept("GET", "**/ipv6.6sc.co/**", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/ingest/v1/web/start", {
+  //     statusCode: 204,
+  //     body: {},
+  //   });
+  //   cy.intercept("POST", "**/collect", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/registrations", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/verify-captcha", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/api2/reload", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/api2/clr", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/api2/bcn", { statusCode: 204, body: {} });
 
   //   cy.visit("/");
 
@@ -174,18 +330,44 @@ describe("The Home Page", () => {
   //   cy.get("h1>span", { timeout: 10000 }).should("have.text", "One last step");
   // });
 
+  // //test case 7
   // it("Add the product to the cart on the store page", () => {
-  //   cy.on("uncaught:exception", (err, runnable) => {
-  //     // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
-  //     if (
-  //       err.message.includes(
-  //         "The fetching process for the media resource was aborted"
-  //       )
-  //     ) {
-  //       return false;
-  //     }
-  //     return false;
+  // //   cy.on("uncaught:exception", (err, runnable) => {
+  // //     // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
+  // //     if (
+  // //       err.message.includes(
+  // //         "The fetching process for the media resource was aborted"
+  // //       )
+  // //     ) {
+  // //       return false;
+  // //     }
+  // //     return false;
+  // //   });
+
+  //   cy.intercept("POST", "**/collect", { statusCode: 204, body: {} });
+  //   cy.intercept("GET", "**/geolocation.onetrust.com/**", {
+  //     statusCode: 204,
+  //     body: {},
   //   });
+  //   cy.intercept("POST", "**/notify.bugsnag.com/**", {
+  //     statusCode: 204,
+  //     body: {},
+  //   });
+  //   cy.intercept("POST", "**/sessions.bugsnag.com/**", {
+  //     statusCode: 204,
+  //     body: {},
+  //   });
+  //   cy.intercept("GET", "**/ipv6.6sc.co/**", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/ingest/v1/web/start", {
+  //     statusCode: 204,
+  //     body: {},
+  //   });
+  //   cy.intercept("POST", "**/collect", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/registrations", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/verify-captcha", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/api2/reload", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/api2/clr", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/api2/bcn", { statusCode: 204, body: {} });
 
   //   cy.visit("/");
 
@@ -210,18 +392,44 @@ describe("The Home Page", () => {
   //     .and("have.text", "Telnyx Classic Hat");
   // });
 
+  // //test case 8
   // it("Delete the product from the cart on the store page", () => {
-  //   cy.on("uncaught:exception", (err, runnable) => {
-  //     // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
-  //     if (
-  //       err.message.includes(
-  //         "The fetching process for the media resource was aborted"
-  //       )
-  //     ) {
-  //       return false;
-  //     }
-  //     return false;
+  // //   cy.on("uncaught:exception", (err, runnable) => {
+  // //     // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
+  // //     if (
+  // //       err.message.includes(
+  // //         "The fetching process for the media resource was aborted"
+  // //       )
+  // //     ) {
+  // //       return false;
+  // //     }
+  // //     return false;
+  // //   });
+
+  //   cy.intercept("POST", "**/collect", { statusCode: 204, body: {} });
+  //   cy.intercept("GET", "**/geolocation.onetrust.com/**", {
+  //     statusCode: 204,
+  //     body: {},
   //   });
+  //   cy.intercept("POST", "**/notify.bugsnag.com/**", {
+  //     statusCode: 204,
+  //     body: {},
+  //   });
+  //   cy.intercept("POST", "**/sessions.bugsnag.com/**", {
+  //     statusCode: 204,
+  //     body: {},
+  //   });
+  //   cy.intercept("GET", "**/ipv6.6sc.co/**", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/ingest/v1/web/start", {
+  //     statusCode: 204,
+  //     body: {},
+  //   });
+  //   cy.intercept("POST", "**/collect", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/registrations", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/verify-captcha", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/api2/reload", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/api2/clr", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/api2/bcn", { statusCode: 204, body: {} });
 
   //   cy.visit("/");
 
@@ -254,18 +462,44 @@ describe("The Home Page", () => {
   //     .and("have.text", "Your cart is empty");
   // });
 
+  //test case 9
   // it("Fill out the partnership form with valid data", () => {
-  //   cy.on("uncaught:exception", (err, runnable) => {
-  //     // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
-  //     if (
-  //       err.message.includes(
-  //         "The fetching process for the media resource was aborted"
-  //       )
-  //     ) {
-  //       return false;
-  //     }
-  //     return false;
+  //   // cy.on("uncaught:exception", (err, runnable) => {
+  //   //   // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
+  //   //   if (
+  //   //     err.message.includes(
+  //   //       "The fetching process for the media resource was aborted"
+  //   //     )
+  //   //   ) {
+  //   //     return false;
+  //   //   }
+  //   //   return false;
+  //   // });
+
+  //   cy.intercept("POST", "**/collect", { statusCode: 204, body: {} });
+  //   cy.intercept("GET", "**/geolocation.onetrust.com/**", {
+  //     statusCode: 204,
+  //     body: {},
   //   });
+  //   cy.intercept("POST", "**/notify.bugsnag.com/**", {
+  //     statusCode: 204,
+  //     body: {},
+  //   });
+  //   cy.intercept("POST", "**/sessions.bugsnag.com/**", {
+  //     statusCode: 204,
+  //     body: {},
+  //   });
+  //   cy.intercept("GET", "**/ipv6.6sc.co/**", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/ingest/v1/web/start", {
+  //     statusCode: 204,
+  //     body: {},
+  //   });
+  //   cy.intercept("POST", "**/collect", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/registrations", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/verify-captcha", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/api2/reload", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/api2/clr", { statusCode: 204, body: {} });
+  //   cy.intercept("POST", "**/api2/bcn", { statusCode: 204, body: {} });
 
   //   cy.visit("/");
 
@@ -300,18 +534,44 @@ describe("The Home Page", () => {
   //   );
   // });
 
+  //test case 10
   it('Read the "BEST Canada Energy" customer story', () => {
-    cy.on("uncaught:exception", (err, runnable) => {
-      // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
-      if (
-        err.message.includes(
-          "The fetching process for the media resource was aborted"
-        )
-      ) {
-        return false;
-      }
-      return false;
+    // cy.on("uncaught:exception", (err, runnable) => {
+    //   // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
+    //   if (
+    //     err.message.includes(
+    //       "The fetching process for the media resource was aborted"
+    //     )
+    //   ) {
+    //     return false;
+    //   }
+    //   return false;
+    // });
+
+    cy.intercept("POST", "**/collect", { statusCode: 204, body: {} });
+    cy.intercept("GET", "**/geolocation.onetrust.com/**", {
+      statusCode: 204,
+      body: {},
     });
+    cy.intercept("POST", "**/notify.bugsnag.com/**", {
+      statusCode: 204,
+      body: {},
+    });
+    cy.intercept("POST", "**/sessions.bugsnag.com/**", {
+      statusCode: 204,
+      body: {},
+    });
+    cy.intercept("GET", "**/ipv6.6sc.co/**", { statusCode: 204, body: {} });
+    cy.intercept("POST", "**/ingest/v1/web/start", {
+      statusCode: 204,
+      body: {},
+    });
+    cy.intercept("POST", "**/collect", { statusCode: 204, body: {} });
+    cy.intercept("POST", "**/registrations", { statusCode: 204, body: {} });
+    cy.intercept("POST", "**/verify-captcha", { statusCode: 204, body: {} });
+    cy.intercept("POST", "**/api2/reload", { statusCode: 204, body: {} });
+    cy.intercept("POST", "**/api2/clr", { statusCode: 204, body: {} });
+    cy.intercept("POST", "**/api2/bcn", { statusCode: 204, body: {} });
 
     cy.visit("/");
 
@@ -320,7 +580,7 @@ describe("The Home Page", () => {
       force: true,
     });
 
-    cy.get("#4wrHkkvEgQncM8SCiLi7ZE").scrollIntoView().click();
+    cy.get("#4wrHkkvEgQncM8SCiLi7ZE").scrollIntoView().click({ force: true });
 
     cy.url().should(
       "eq",
