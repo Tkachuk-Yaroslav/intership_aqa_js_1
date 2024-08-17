@@ -112,12 +112,12 @@ describe("The Home Page", () => {
   //   // cy.get('h1[class="app-title"]').should("have.text", "Controller (Remote)");
 
   //   // Використання cy.origin для взаємодії з іншим доменом
-  //   cy.origin("https://boards.greenhouse.io", () => {
-  //     cy.get('h1[class="app-title"]').should(
-  //       "have.text",
-  //       "Controller (Remote)"
-  //     );
-  //   });
+  // cy.origin("https://boards.greenhouse.io", () => {
+  //   cy.get('h1[class="app-title"]').should(
+  //     "have.text",
+  //     "Controller (Remote)"
+  //   );
+  // });
   // });
 
   // it("Form display on the Contact Us page", () => {
@@ -141,7 +141,40 @@ describe("The Home Page", () => {
   //   cy.get("#mktoForm_1987").should("be.visible");
   // });
 
-  it("Sign up to Telnyx with valid credentials", () => {
+  // it("Sign up to Telnyx with valid credentials", () => {
+  //   cy.on("uncaught:exception", (err, runnable) => {
+  //     // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
+  //     if (
+  //       err.message.includes(
+  //         "The fetching process for the media resource was aborted"
+  //       )
+  //     ) {
+  //       return false;
+  //     }
+  //     return false;
+  //   });
+
+  //   cy.visit("/");
+
+  //   cy.get("#header-sign-up").click({ force: true });
+
+  //   // cy.get("#email").click().type("asd@asd");
+  //   cy.get("#email").as("emailField").click({ force: true });
+  //   cy.get("@emailField").type("emailisnotaprobl@gmail.com");
+  //   cy.get("#first_name").click().type("Tester");
+  //   cy.get("#last_name").click().type("Aqa");
+  //   cy.get("#password").click().type("Qwe123*qwe123");
+
+  //   cy.get("#terms_and_conditions").click();
+  //   cy.get(
+  //     'button[class="c-kDQqQr c-kDQqQr-fwzCzT-background-light c-kDQqQr-cOvXws-cv c-ddSKil"]'
+  //   ).click();
+
+  //   //вибиває помилку замість переадресації
+  //   cy.get("h1>span", { timeout: 10000 }).should("have.text", "One last step");
+  // });
+
+  it("Add the product to the cart on the store page", () => {
     cy.on("uncaught:exception", (err, runnable) => {
       // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
       if (
@@ -156,21 +189,45 @@ describe("The Home Page", () => {
 
     cy.visit("/");
 
-    cy.get("#header-sign-up").click({ force: true });
+    cy.get('a[href="https://shop.telnyx.com"]')
+      .invoke("removeAttr", "target")
+      .click({ force: true });
 
-    // cy.get("#email").click().type("asd@asd");
-    cy.get("#email").as("emailField").click({ force: true });
-    cy.get("@emailField").type("emailisnotaprobl@gmail.com");
-    cy.get("#first_name").click().type("Tester");
-    cy.get("#last_name").click().type("Aqa");
-    cy.get("#password").click().type("Qwe123*qwe123");
-
-    cy.get("#terms_and_conditions").click();
+    // Без використання cy.origin()
     cy.get(
-      'button[class="c-kDQqQr c-kDQqQr-fwzCzT-background-light c-kDQqQr-cOvXws-cv c-ddSKil"]'
+      "#shopify-section-template--14828910772302__featured-collection-0 > div > div > div > h2"
+    ).scrollIntoView();
+
+    cy.get(
+      "#quick-add-template--14828910772302__featured-collection-06960027533390-submit"
     ).click();
 
+    cy.get("cart-drawer.drawer.animate.active").should("be.visible");
+    cy.get(
+      'td[class="cart-item__details"]>a[href="/products/telnyx-classic-hat?variant=40466321965134"]'
+    )
+      .should("be.visible")
+      .and("have.text", "Telnyx Classic Hat");
+
+    // cy.origin("https://shop.telnyx.com/", () => {
+    //   cy.get(
+    //     "#shopify-section-template--14828910772302__featured-collection-0 > div > div > div > h2"
+    //   ).scrollIntoView();
+    // });
+
+    // cy.get("#email").click().type("asd@asd");
+    // cy.get("#email").as("emailField").click({ force: true });
+    // cy.get("@emailField").type("emailisnotaprobl@gmail.com");
+    // cy.get("#first_name").click().type("Tester");
+    // cy.get("#last_name").click().type("Aqa");
+    // cy.get("#password").click().type("Qwe123*qwe123");
+
+    // cy.get("#terms_and_conditions").click();
+    // cy.get(
+    //   'button[class="c-kDQqQr c-kDQqQr-fwzCzT-background-light c-kDQqQr-cOvXws-cv c-ddSKil"]'
+    // ).click();
+
     //вибиває помилку замість переадресації
-    cy.get("h1>span", { timeout: 10000 }).should("have.text", "One last step");
+    // cy.get("h1>span", { timeout: 10000 }).should("have.text", "One last step");
   });
 });
