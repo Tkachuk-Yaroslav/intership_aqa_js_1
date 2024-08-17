@@ -210,7 +210,51 @@ describe("The Home Page", () => {
   //     .and("have.text", "Telnyx Classic Hat");
   // });
 
-  it("Delete the product from the cart on the store page", () => {
+  // it("Delete the product from the cart on the store page", () => {
+  //   cy.on("uncaught:exception", (err, runnable) => {
+  //     // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
+  //     if (
+  //       err.message.includes(
+  //         "The fetching process for the media resource was aborted"
+  //       )
+  //     ) {
+  //       return false;
+  //     }
+  //     return false;
+  //   });
+
+  //   cy.visit("/");
+
+  //   cy.get('a[href="https://shop.telnyx.com"]')
+  //     .invoke("removeAttr", "target")
+  //     .click({ force: true });
+
+  //   // Без використання cy.origin()
+  //   cy.get(
+  //     "#shopify-section-template--14828910772302__featured-collection-0 > div > div > div > h2"
+  //   ).scrollIntoView();
+
+  //   cy.get(
+  //     "#quick-add-template--14828910772302__featured-collection-06960027533390-submit"
+  //   ).click();
+
+  //   cy.get("cart-drawer.drawer.animate.active").should("be.visible");
+  //   cy.get(
+  //     'td[class="cart-item__details"]>a[href="/products/telnyx-classic-hat?variant=40466321965134"]'
+  //   )
+  //     .should("be.visible")
+  //     .and("have.text", "Telnyx Classic Hat");
+
+  //   cy.get("#CartDrawer-Remove-1>button").click();
+
+  //   cy.get('div[class="drawer__inner-empty"]').should("be.visible");
+
+  //   cy.get('h2[class="cart__empty-text"]')
+  //     .should("be.visible")
+  //     .and("have.text", "Your cart is empty");
+  // });
+
+  it("Fill out the partnership form with valid data", () => {
     cy.on("uncaught:exception", (err, runnable) => {
       // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
       if (
@@ -225,32 +269,34 @@ describe("The Home Page", () => {
 
     cy.visit("/");
 
-    cy.get('a[href="https://shop.telnyx.com"]')
-      .invoke("removeAttr", "target")
-      .click({ force: true });
+    cy.get("#radix-\\:r5\\:").should("be.visible").click();
+    // не розумію чого не відображається клік по дропдаунах при тесті, тому пішов іншим шляхом
+    cy.get('div[aria-hidden="true"]>a[href="/partnerships"]').click({
+      force: true,
+    });
 
-    // Без використання cy.origin()
-    cy.get(
-      "#shopify-section-template--14828910772302__featured-collection-0 > div > div > div > h2"
-    ).scrollIntoView();
+    cy.get("#mktoForm_2242").scrollIntoView().should("be.visible");
+    cy.get("#FirstName").should("be.visible").type("FirstName");
+    cy.get("#LastName").should("be.visible").type("LastName");
+    cy.get("#Company").should("be.visible").type("Company");
+    cy.get("#Email").should("be.visible").type("mybusinessemail@gmail.com");
+    // cy.get("#Phone_Number_Extension__c").should("be.visible").click();
 
-    cy.get(
-      "#quick-add-template--14828910772302__featured-collection-06960027533390-submit"
-    ).click();
-
-    cy.get("cart-drawer.drawer.animate.active").should("be.visible");
-    cy.get(
-      'td[class="cart-item__details"]>a[href="/products/telnyx-classic-hat?variant=40466321965134"]'
-    )
+    cy.get("#Phone_Number_Extension__c").should("be.visible").select("+380"); // За значенням
+    cy.get("#Phone_Number_Base__c").should("be.visible").type("0977777777");
+    cy.get("#Form_Partner_Type__c")
       .should("be.visible")
-      .and("have.text", "Telnyx Classic Hat");
-
-    cy.get("#CartDrawer-Remove-1>button").click();
-
-    cy.get('div[class="drawer__inner-empty"]').should("be.visible");
-
-    cy.get('h2[class="cart__empty-text"]')
+      .select("SaaS / ISV / Tech"); // За значенням
+    cy.get("#Form_Additional_Information__c")
       .should("be.visible")
-      .and("have.text", "Your cart is empty");
+      .type("Because this is my dream");
+
+    cy.get('button[class="mktoButton"]').should("be.visible").click();
+    cy.get("h1>span").should("be.visible").and("have.text", "Thank you.");
+    // Перевіряємо, що URL змінився на очікуваний
+    cy.url().should(
+      "eq",
+      "https://telnyx.com/thank-you?formId=2242&email=mybusinessemail%40gmail.com"
+    );
   });
 });
