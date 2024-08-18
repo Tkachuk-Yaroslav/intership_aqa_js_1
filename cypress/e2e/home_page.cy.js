@@ -249,25 +249,25 @@ describe("The Home Page", () => {
   });
 
   // //test case 10
-  // it('Read the "BEST Canada Energy" customer story', () => {
-  //   setupInterceptions();
+  it('Read the "BEST Canada Energy" customer story', () => {
+    setupInterceptions();
 
-  //   cy.visit("/");
+    cy.visit("/");
 
-  //   // не розумію чого не відображається клік по дропдаунах при тесті, тому пішов іншим шляхом
-  //   cy.get('div[aria-hidden="true"]>a[href="/customer-stories"]').click({
-  //     force: true,
-  //   });
+    // не розумію чого не відображається клік по дропдаунах при тесті, тому пішов іншим шляхом
+    cy.get('div[aria-hidden="true"]>a[href="/customer-stories"]').click({
+      force: true,
+    });
 
-  //   cy.get("#4wrHkkvEgQncM8SCiLi7ZE").scrollIntoView().click({ force: true });
+    cy.get("#4wrHkkvEgQncM8SCiLi7ZE").scrollIntoView().click({ force: true });
 
-  //   cy.url().should(
-  //     "eq",
-  //     "https://telnyx.com/customer-stories/best-canada-energy"
-  //   );
+    cy.url().should(
+      "eq",
+      "https://telnyx.com/customer-stories/best-canada-energy"
+    );
 
-  //   cy.get("div>h1")
-  //     .should("be.visible")
-  //     .and("have.text", "BEST Canada Energy");
-  // });
+    cy.get("div>h1")
+      .should("be.visible")
+      .and("have.text", "BEST Canada Energy");
+  });
 });
