@@ -7,7 +7,7 @@
 import { setupInterceptions } from "../support/interceptors";
 
 describe("The Home Page", () => {
-  //test case 1
+  // //test case 1
   // it("Sign up to Telnyx with not valid email", () => {
   //   // cy.on("uncaught:exception", (err, runnable) => {
   //   //   // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
@@ -112,7 +112,7 @@ describe("The Home Page", () => {
   //   });
   // });
 
-  //teest case 5
+  // //teest case 5
   // it("Form display on the Contact Us page", () => {
   //   setupInterceptions();
 
@@ -125,7 +125,7 @@ describe("The Home Page", () => {
   //   cy.get("#mktoForm_1987").should("be.visible");
   // });
 
-  //test case 6
+  // //test case 6
   // it("Sign up to Telnyx with valid credentials", () => {
   //   setupInterceptions();
 
@@ -149,7 +149,7 @@ describe("The Home Page", () => {
   //   cy.get("h1>span", { timeout: 10000 }).should("have.text", "One last step");
   // });
 
-  //test case 7
+  // //test case 7
   // it("Add the product to the cart on the store page", () => {
   //   setupInterceptions();
 
@@ -176,7 +176,7 @@ describe("The Home Page", () => {
   //     .and("have.text", "Telnyx Classic Hat");
   // });
 
-  //test case 8
+  // //test case 8
   // it("Delete the product from the cart on the store page", () => {
   //   setupInterceptions();
 
@@ -211,7 +211,7 @@ describe("The Home Page", () => {
   //     .and("have.text", "Your cart is empty");
   // });
 
-  //test case 9
+  // //test case 9
   // it("Fill out the partnership form with valid data", () => {
   //   setupInterceptions();
 
