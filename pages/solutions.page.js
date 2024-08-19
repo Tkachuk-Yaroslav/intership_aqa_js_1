@@ -25,11 +25,8 @@ class SolutionsPage {
     this.logo.click({ force: true });
   }
 
-  shouldSolutionsHeader() {
-    this.solutionsHeader.should(
-      "have.text",
-      "Solutions for scaling your business"
-    );
+  shouldSolutionsHeader(arrValue) {
+    this.solutionsHeader.should(arrValue[0], arrValue[1]);
   }
 }
 

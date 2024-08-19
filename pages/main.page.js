@@ -59,8 +59,8 @@ class MainPage {
     this.customerStoriesLink.click({ force: true });
   }
 
-  shouldHeadTitle() {
-    this.headTitle.should("have.text", "Connectivity reimagined.");
+  shouldHeadTitle(arrValue) {
+    this.headTitle.should(arrValue[0], arrValue[1]);
   }
 
   scrollToCareersLink() {

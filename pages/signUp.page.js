@@ -71,16 +71,16 @@ class SignUpPage {
     this.emailField.type(value);
   }
 
-  typeInFirstName() {
-    this.firstName.type("Tester");
+  typeInFirstName(value) {
+    this.firstName.type(value);
   }
 
-  typeInLastName() {
-    this.lastName.type("Aqa");
+  typeInLastName(value) {
+    this.lastName.type(value);
   }
 
-  typeInPassword() {
-    this.password.type("Qwe123qwe123*");
+  typeInPassword(password) {
+    this.password.type(password);
   }
 }
 
