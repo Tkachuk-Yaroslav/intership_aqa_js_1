@@ -7,74 +7,67 @@
 import { setupInterceptions } from "../support/interceptors";
 
 import SignUpPage from "../../pages/signUp.page.js";
+import MainPage from "../../pages/main.page.js";
+import SolutionsPage from "../../pages/solutions.page.js";
 
 describe("The Home Page", () => {
-  //test case 1
-  it("Sign up to Telnyx with not valid email", () => {
-    setupInterceptions();
-
-    cy.visit("/");
-    cy.get("#header-sign-up").click({ force: true });
-
-    SignUpPage.clickOnEmailField();
-    SignUpPage.typeInEmailField("asd@asd");
-
-    SignUpPage.clickOnFirstName();
-    SignUpPage.typeInFirstName();
-
-    SignUpPage.clickOnLastName();
-    SignUpPage.typeInLastName();
-
-    SignUpPage.clickOnPassword();
-    SignUpPage.typeInPassword();
-
-    SignUpPage.clickOnTermsCheckbox();
-
-    SignUpPage.clickOnSignUpBtn();
-
-    SignUpPage.errorMessage;
-
-    // // cy.get("#email").click().type("asd@asd");
-    // // cy.get("#email").as("emailField").click({ force: true });
-    // // cy.get("@emailField").type("asd@asd");
-    // // cy.get("#first_name").click().type("Tester");
-    // // cy.get("#last_name").click().type("Aqa");
-    // // cy.get("#password").click().type("Qwe123qwe123*");
-
-    // // cy.get("#terms_and_conditions").click();
-    // // cy.get(
-    // //   'button[class="c-kDQqQr c-kDQqQr-fwzCzT-background-light c-kDQqQr-cOvXws-cv c-ddSKil"]'
-    // // ).click();
-
-    // cy.get(
-    //   "#__next > div > main > section > div.c-cUhiIV.c-cFpcyF > div > div.c-kbJYtg > div > form > div.c-UUKrH.c-UUKrH-kDyeyw-type-error"
-    // );
-  });
-
-  // // //test case 2
-  // it("Make a transition to the Solutions page", () => {
-  //   // cy.on("uncaught:exception", (err, runnable) => {
-  //   //   // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
-  //   //   if (
-  //   //     err.message.includes(
-  //   //       "The fetching process for the media resource was aborted"
-  //   //     )
-  //   //   ) {
-  //   //     return false;
-  //   //   }
-  //   // });
-
+  // //test case 1
+  // it("Sign up to Telnyx with not valid email", () => {
   //   setupInterceptions();
 
   //   cy.visit("/");
+  //   cy.get("#header-sign-up").click({ force: true });
 
-  //   cy.get('a[href="/solutions"]').click({ force: true });
+  //   SignUpPage.clickOnEmailField();
+  //   SignUpPage.typeInEmailField("asd@asd");
 
-  //   cy.get('h1[class="c-PJLV c-fGbiyG c-PJLV-cHtIMp-dark-false"]').should(
-  //     "have.text",
-  //     "Solutions for scaling your business"
-  //   );
+  //   SignUpPage.clickOnFirstName();
+  //   SignUpPage.typeInFirstName();
+
+  //   SignUpPage.clickOnLastName();
+  //   SignUpPage.typeInLastName();
+
+  //   SignUpPage.clickOnPassword();
+  //   SignUpPage.typeInPassword();
+
+  //   SignUpPage.clickOnTermsCheckbox();
+
+  //   SignUpPage.clickOnSignUpBtn();
+
+  //   SignUpPage.errorMessage;
+
+  //   // // cy.get("#email").click().type("asd@asd");
+  //   // // cy.get("#email").as("emailField").click({ force: true });
+  //   // // cy.get("@emailField").type("asd@asd");
+  //   // // cy.get("#first_name").click().type("Tester");
+  //   // // cy.get("#last_name").click().type("Aqa");
+  //   // // cy.get("#password").click().type("Qwe123qwe123*");
+
+  //   // // cy.get("#terms_and_conditions").click();
+  //   // // cy.get(
+  //   // //   'button[class="c-kDQqQr c-kDQqQr-fwzCzT-background-light c-kDQqQr-cOvXws-cv c-ddSKil"]'
+  //   // // ).click();
+
+  //   // cy.get(
+  //   //   "#__next > div > main > section > div.c-cUhiIV.c-cFpcyF > div > div.c-kbJYtg > div > form > div.c-UUKrH.c-UUKrH-kDyeyw-type-error"
+  //   // );
   // });
+
+  // //test case 2
+  it("Make a transition to the Solutions page", () => {
+    setupInterceptions();
+
+    cy.visit("/");
+
+    MainPage.clickOnSolutionsLink();
+    // cy.get('a[href="/solutions"]').click({ force: true });
+
+    SolutionsPage.shouldSolutionsHeader();
+    // cy.get('h1[class="c-PJLV c-fGbiyG c-PJLV-cHtIMp-dark-false"]').should(
+    //   "have.text",
+    //   "Solutions for scaling your business"
+    // );
+  });
 
   // //test case 3
   // it("Check the transition to the main page after clicking on the logo", () => {
