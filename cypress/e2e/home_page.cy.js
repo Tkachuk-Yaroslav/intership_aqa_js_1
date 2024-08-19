@@ -11,6 +11,7 @@ import MainPage from "../../pages/main.page.js";
 import SolutionsPage from "../../pages/solutions.page.js";
 import CareersPage from "../../pages/careers.page.js";
 import ContactUsPage from "../../pages/contactUs.page.js";
+import ShopTelnyxPage from "../../pages/shopTelnyx.page.js";
 
 describe("The Home Page", () => {
   // //test case 1
@@ -138,70 +139,79 @@ describe("The Home Page", () => {
   //   // cy.get("#mktoForm_1987").should("be.visible");
   // });
 
-  //test case 6
-  it("Sign up to Telnyx with valid credentials", () => {
-    setupInterceptions();
-
-    cy.visit("/");
-
-    MainPage.clickOnSignUpBtn();
-    // cy.get("#header-sign-up").click({ force: true });
-
-    SignUpPage.clickOnEmailField();
-    SignUpPage.typeInEmailField("emailisnotaprobl@gmail.com");
-
-    SignUpPage.clickOnFirstName();
-    SignUpPage.typeInFirstName();
-
-    SignUpPage.clickOnLastName();
-    SignUpPage.typeInLastName();
-
-    SignUpPage.clickOnPassword();
-    SignUpPage.typeInPassword();
-
-    SignUpPage.clickOnTermsCheckbox();
-    SignUpPage.clickOnSignUpBtn();
-    // cy.get("#email").as("emailField").click({ force: true });
-    // cy.get("@emailField").type("emailisnotaprobl@gmail.com");
-    // cy.get("#first_name").click().type("Tester");
-    // cy.get("#last_name").click().type("Aqa");
-    // cy.get("#password").click().type("Qwe123*qwe123");
-
-    // cy.get("#terms_and_conditions").click();
-    // cy.get(
-    //   'button[class="c-kDQqQr c-kDQqQr-fwzCzT-background-light c-kDQqQr-cOvXws-cv c-ddSKil"]'
-    // ).click();
-
-    //вибиває помилку замість переадресації
-    cy.get("h1>span", { timeout: 10000 }).should("have.text", "One last step");
-  });
-
-  // //test case 7
-  // it("Add the product to the cart on the store page", () => {
+  // //test case 6
+  // it("Sign up to Telnyx with valid credentials", () => {
   //   setupInterceptions();
 
   //   cy.visit("/");
 
-  //   cy.get('a[href="https://shop.telnyx.com"]')
-  //     .invoke("removeAttr", "target")
-  //     .click({ force: true });
+  //   MainPage.clickOnSignUpBtn();
+  //   // cy.get("#header-sign-up").click({ force: true });
 
-  //   // Без використання cy.origin()
-  //   cy.get(
-  //     "#shopify-section-template--14828910772302__featured-collection-0 > div > div > div > h2"
-  //   ).scrollIntoView();
+  //   SignUpPage.clickOnEmailField();
+  //   SignUpPage.typeInEmailField("emailisnotaprobl@gmail.com");
 
-  //   cy.get(
-  //     "#quick-add-template--14828910772302__featured-collection-06960027533390-submit"
-  //   ).click();
+  //   SignUpPage.clickOnFirstName();
+  //   SignUpPage.typeInFirstName();
 
-  //   cy.get("cart-drawer.drawer.animate.active").should("be.visible");
-  //   cy.get(
-  //     'td[class="cart-item__details"]>a[href="/products/telnyx-classic-hat?variant=40466321965134"]'
-  //   )
-  //     .should("be.visible")
-  //     .and("have.text", "Telnyx Classic Hat");
+  //   SignUpPage.clickOnLastName();
+  //   SignUpPage.typeInLastName();
+
+  //   SignUpPage.clickOnPassword();
+  //   SignUpPage.typeInPassword();
+
+  //   SignUpPage.clickOnTermsCheckbox();
+  //   SignUpPage.clickOnSignUpBtn();
+  //   // cy.get("#email").as("emailField").click({ force: true });
+  //   // cy.get("@emailField").type("emailisnotaprobl@gmail.com");
+  //   // cy.get("#first_name").click().type("Tester");
+  //   // cy.get("#last_name").click().type("Aqa");
+  //   // cy.get("#password").click().type("Qwe123*qwe123");
+
+  //   // cy.get("#terms_and_conditions").click();
+  //   // cy.get(
+  //   //   'button[class="c-kDQqQr c-kDQqQr-fwzCzT-background-light c-kDQqQr-cOvXws-cv c-ddSKil"]'
+  //   // ).click();
+
+  //   //вибиває помилку замість переадресації
+  //   cy.get("h1>span", { timeout: 10000 }).should("have.text", "One last step");
   // });
+
+  //test case 7
+  it("Add the product to the cart on the store page", () => {
+    setupInterceptions();
+
+    cy.visit("/");
+    MainPage.removeAttrInShopLink("target");
+    MainPage.clickOnShopLink();
+    // // cy.get('a[href="https://shop.telnyx.com"]')
+    // //   .invoke("removeAttr", "target")
+    // //   .click({ force: true });
+
+    ShopTelnyxPage.scrollToShopifySection();
+    // // Без використання cy.origin()
+    // // cy.get(
+    // //   "#shopify-section-template--14828910772302__featured-collection-0 > div > div > div > h2"
+    // // ).scrollIntoView();
+
+    ShopTelnyxPage.clickOnAddItemBtn();
+    // // cy.get(
+    // //   "#quick-add-template--14828910772302__featured-collection-06960027533390-submit"
+    // // ).click();
+
+    ShopTelnyxPage.shouldCartDriwerBeVisible();
+    // cy.get("cart-drawer.drawer.animate.active").should("be.visible");
+    ShopTelnyxPage.shouldAddedItemLink([
+      "be.visible",
+      "have.text",
+      "Telnyx Classic Hat",
+    ]);
+    // // cy.get(
+    // //   'td[class="cart-item__details"]>a[href="/products/telnyx-classic-hat?variant=40466321965134"]'
+    // // )
+    // //   .should("be.visible")
+    // //   .and("have.text", "Telnyx Classic Hat");
+  });
 
   // //test case 8
   // it("Delete the product from the cart on the store page", () => {
