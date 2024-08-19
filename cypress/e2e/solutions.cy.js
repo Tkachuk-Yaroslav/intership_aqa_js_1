@@ -11,16 +11,11 @@ describe("The Home Page", () => {
     cy.visit("/");
 
     MainPage.clickOnSolutionsLink();
-    // cy.get('a[href="/solutions"]').click({ force: true });
 
     SolutionsPage.shouldSolutionsHeader([
       "have.text",
       "Solutions for scaling your business",
     ]);
-    // cy.get('h1[class="c-PJLV c-fGbiyG c-PJLV-cHtIMp-dark-false"]').should(
-    //   "have.text",
-    //   "Solutions for scaling your business"
-    // );
   });
 
   //test case 3
@@ -30,23 +25,14 @@ describe("The Home Page", () => {
     cy.visit("/");
 
     MainPage.clickOnSolutionsLink();
-    // cy.get('a[href="/solutions"]').click({ force: true });
 
     SolutionsPage.shouldSolutionsHeader([
       "have.text",
       "Solutions for scaling your business",
     ]);
-    // cy.get('h1[class="c-PJLV c-fGbiyG c-PJLV-cHtIMp-dark-false"]').should(
-    //   "have.text",
-    //   "Solutions for scaling your business"
-    // );
 
     SolutionsPage.clickOnLogo();
-    // cy.get(
-    //   "#__next > div > header > div > div > div.c-buvHyO.c-buvHyO-idbhasO-css > a"
-    // ).click();
 
     MainPage.shouldHeadTitle(["have.text", "Connectivity reimagined."]);
-    // cy.get("div>h1").should("have.text", "Connectivity reimagined.");
   });
 });
