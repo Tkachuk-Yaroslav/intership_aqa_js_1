@@ -211,63 +211,63 @@ describe("The Home Page", () => {
   //     .and("have.text", "Your cart is empty");
   // });
 
-  // //test case 9
-  // it("Fill out the partnership form with valid data", () => {
-  //   setupInterceptions();
-
-  //   cy.visit("/");
-
-  //   cy.get("#radix-\\:r5\\:").should("be.visible").click();
-  //   // не розумію чого не відображається клік по дропдаунах при тесті, тому пішов іншим шляхом
-  //   cy.get('div[aria-hidden="true"]>a[href="/partnerships"]').click({
-  //     force: true,
-  //   });
-
-  //   cy.get("#mktoForm_2242").scrollIntoView().should("be.visible");
-  //   cy.get("#FirstName").should("be.visible").type("FirstName");
-  //   cy.get("#LastName").should("be.visible").type("LastName");
-  //   cy.get("#Company").should("be.visible").type("Company");
-  //   cy.get("#Email").should("be.visible").type("mybusinessemail@gmail.com");
-  //   // cy.get("#Phone_Number_Extension__c").should("be.visible").click();
-
-  //   cy.get("#Phone_Number_Extension__c").should("be.visible").select("+380"); // За значенням
-  //   cy.get("#Phone_Number_Base__c").should("be.visible").type("0977777777");
-  //   cy.get("#Form_Partner_Type__c")
-  //     .should("be.visible")
-  //     .select("SaaS / ISV / Tech"); // За значенням
-  //   cy.get("#Form_Additional_Information__c")
-  //     .should("be.visible")
-  //     .type("Because this is my dream");
-
-  //   cy.get('button[class="mktoButton"]').should("be.visible").click();
-  //   cy.get("h1>span").should("be.visible").and("have.text", "Thank you.");
-  //   // Перевіряємо, що URL змінився на очікуваний
-  //   cy.url().should(
-  //     "eq",
-  //     "https://telnyx.com/thank-you?formId=2242&email=mybusinessemail%40gmail.com"
-  //   );
-  // });
-
-  // //test case 10
-  it('Read the "BEST Canada Energy" customer story', () => {
+  //test case 9
+  it("Fill out the partnership form with valid data", () => {
     setupInterceptions();
 
     cy.visit("/");
 
+    cy.get("#radix-\\:r5\\:").should("be.visible").click();
     // не розумію чого не відображається клік по дропдаунах при тесті, тому пішов іншим шляхом
-    cy.get('div[aria-hidden="true"]>a[href="/customer-stories"]').click({
+    cy.get('div[aria-hidden="true"]>a[href="/partnerships"]').click({
       force: true,
     });
 
-    cy.get("#4wrHkkvEgQncM8SCiLi7ZE").scrollIntoView().click({ force: true });
+    cy.get("#mktoForm_2242").scrollIntoView().should("be.visible");
+    cy.get("#FirstName").should("be.visible").type("FirstName");
+    cy.get("#LastName").should("be.visible").type("LastName");
+    cy.get("#Company").should("be.visible").type("Company");
+    cy.get("#Email").should("be.visible").type("mybusinessemail@gmail.com");
+    // cy.get("#Phone_Number_Extension__c").should("be.visible").click();
 
+    cy.get("#Phone_Number_Extension__c").should("be.visible").select("+380"); // За значенням
+    cy.get("#Phone_Number_Base__c").should("be.visible").type("0977777777");
+    cy.get("#Form_Partner_Type__c")
+      .should("be.visible")
+      .select("SaaS / ISV / Tech"); // За значенням
+    cy.get("#Form_Additional_Information__c")
+      .should("be.visible")
+      .type("Because this is my dream");
+
+    cy.get('button[class="mktoButton"]').should("be.visible").click();
+    cy.get("h1>span").should("be.visible").and("have.text", "Thank you.");
+    // Перевіряємо, що URL змінився на очікуваний
     cy.url().should(
       "eq",
-      "https://telnyx.com/customer-stories/best-canada-energy"
+      "https://telnyx.com/thank-you?formId=2242&email=mybusinessemail%40gmail.com"
     );
-
-    cy.get("div>h1")
-      .should("be.visible")
-      .and("have.text", "BEST Canada Energy");
   });
+
+  // // //test case 10
+  // it('Read the "BEST Canada Energy" customer story', () => {
+  //   setupInterceptions();
+
+  //   cy.visit("/");
+
+  //   // не розумію чого не відображається клік по дропдаунах при тесті, тому пішов іншим шляхом
+  //   cy.get('div[aria-hidden="true"]>a[href="/customer-stories"]').click({
+  //     force: true,
+  //   });
+
+  //   cy.get("#4wrHkkvEgQncM8SCiLi7ZE").scrollIntoView().click({ force: true });
+
+  //   cy.url().should(
+  //     "eq",
+  //     "https://telnyx.com/customer-stories/best-canada-energy"
+  //   );
+
+  //   cy.get("div>h1")
+  //     .should("be.visible")
+  //     .and("have.text", "BEST Canada Energy");
+  // });
 });
