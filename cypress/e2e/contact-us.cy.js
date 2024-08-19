@@ -15,9 +15,8 @@ describe("Testing contact us page", () => {
 
     CareersPage.removeAttr("target");
     CareersPage.scrollToJobLink();
-    careersPage.clickOnJobLink();
+    CareersPage.clickOnJobLink();
 
-    // Використання cy.origin для взаємодії з іншим доменом
     cy.origin("https://boards.greenhouse.io", () => {
       cy.get('h1[class="app-title"]').should(
         "have.text",
