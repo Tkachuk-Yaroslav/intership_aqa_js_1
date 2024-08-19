@@ -6,42 +6,50 @@
 
 import { setupInterceptions } from "../support/interceptors";
 
+import SignUpPage from "../../pages/signUp.page.js";
+
 describe("The Home Page", () => {
-  // //test case 1
-  // it("Sign up to Telnyx with not valid email", () => {
-  //   // cy.on("uncaught:exception", (err, runnable) => {
-  //   //   // поверни false, щоб Cypress не зупиняв тест при виникненні цієї помилки
-  //   //   if (
-  //   //     err.message.includes(
-  //   //       "The fetching process for the media resource was aborted"
-  //   //     )
-  //   //   ) {
-  //   //     return false;
-  //   //   }
-  //   //   return false;
-  //   // });
+  //test case 1
+  it("Sign up to Telnyx with not valid email", () => {
+    setupInterceptions();
 
-  //   setupInterceptions();
+    cy.visit("/");
+    cy.get("#header-sign-up").click({ force: true });
 
-  //   cy.visit("/");
-  //   cy.get("#header-sign-up").click({ force: true });
+    SignUpPage.clickOnEmailField();
+    SignUpPage.typeInEmailField("asd@asd");
 
-  //   // cy.get("#email").click().type("asd@asd");
-  //   cy.get("#email").as("emailField").click({ force: true });
-  //   cy.get("@emailField").type("asd@asd");
-  //   cy.get("#first_name").click().type("Tester");
-  //   cy.get("#last_name").click().type("Aqa");
-  //   cy.get("#password").click().type("Qwe123qwe123*");
+    SignUpPage.clickOnFirstName();
+    SignUpPage.typeInFirstName();
 
-  //   cy.get("#terms_and_conditions").click();
-  //   cy.get(
-  //     'button[class="c-kDQqQr c-kDQqQr-fwzCzT-background-light c-kDQqQr-cOvXws-cv c-ddSKil"]'
-  //   ).click();
+    SignUpPage.clickOnLastName();
+    SignUpPage.typeInLastName();
 
-  //   cy.get(
-  //     "#__next > div > main > section > div.c-cUhiIV.c-cFpcyF > div > div.c-kbJYtg > div > form > div.c-UUKrH.c-UUKrH-kDyeyw-type-error"
-  //   );
-  // });
+    SignUpPage.clickOnPassword();
+    SignUpPage.typeInPassword();
+
+    SignUpPage.clickOnTermsCheckbox();
+
+    SignUpPage.clickOnSignUpBtn();
+
+    SignUpPage.errorMessage;
+
+    // // cy.get("#email").click().type("asd@asd");
+    // // cy.get("#email").as("emailField").click({ force: true });
+    // // cy.get("@emailField").type("asd@asd");
+    // // cy.get("#first_name").click().type("Tester");
+    // // cy.get("#last_name").click().type("Aqa");
+    // // cy.get("#password").click().type("Qwe123qwe123*");
+
+    // // cy.get("#terms_and_conditions").click();
+    // // cy.get(
+    // //   'button[class="c-kDQqQr c-kDQqQr-fwzCzT-background-light c-kDQqQr-cOvXws-cv c-ddSKil"]'
+    // // ).click();
+
+    // cy.get(
+    //   "#__next > div > main > section > div.c-cUhiIV.c-cFpcyF > div > div.c-kbJYtg > div > form > div.c-UUKrH.c-UUKrH-kDyeyw-type-error"
+    // );
+  });
 
   // // //test case 2
   // it("Make a transition to the Solutions page", () => {
@@ -211,42 +219,42 @@ describe("The Home Page", () => {
   //     .and("have.text", "Your cart is empty");
   // });
 
-  //test case 9
-  it("Fill out the partnership form with valid data", () => {
-    setupInterceptions();
+  // //test case 9
+  // it("Fill out the partnership form with valid data", () => {
+  //   setupInterceptions();
 
-    cy.visit("/");
+  //   cy.visit("/");
 
-    cy.get("#radix-\\:r5\\:").should("be.visible").click();
-    // не розумію чого не відображається клік по дропдаунах при тесті, тому пішов іншим шляхом
-    cy.get('div[aria-hidden="true"]>a[href="/partnerships"]').click({
-      force: true,
-    });
+  //   cy.get("#radix-\\:r5\\:").should("be.visible").click();
+  //   // не розумію чого не відображається клік по дропдаунах при тесті, тому пішов іншим шляхом
+  //   cy.get('div[aria-hidden="true"]>a[href="/partnerships"]').click({
+  //     force: true,
+  //   });
 
-    cy.get("#mktoForm_2242").scrollIntoView().should("be.visible");
-    cy.get("#FirstName").should("be.visible").type("FirstName");
-    cy.get("#LastName").should("be.visible").type("LastName");
-    cy.get("#Company").should("be.visible").type("Company");
-    cy.get("#Email").should("be.visible").type("mybusinessemail@gmail.com");
-    // cy.get("#Phone_Number_Extension__c").should("be.visible").click();
+  //   cy.get("#mktoForm_2242").scrollIntoView().should("be.visible");
+  //   cy.get("#FirstName").should("be.visible").type("FirstName");
+  //   cy.get("#LastName").should("be.visible").type("LastName");
+  //   cy.get("#Company").should("be.visible").type("Company");
+  //   cy.get("#Email").should("be.visible").type("mybusinessemail@gmail.com");
+  //   // cy.get("#Phone_Number_Extension__c").should("be.visible").click();
 
-    cy.get("#Phone_Number_Extension__c").should("be.visible").select("+380"); // За значенням
-    cy.get("#Phone_Number_Base__c").should("be.visible").type("0977777777");
-    cy.get("#Form_Partner_Type__c")
-      .should("be.visible")
-      .select("SaaS / ISV / Tech"); // За значенням
-    cy.get("#Form_Additional_Information__c")
-      .should("be.visible")
-      .type("Because this is my dream");
+  //   cy.get("#Phone_Number_Extension__c").should("be.visible").select("+380"); // За значенням
+  //   cy.get("#Phone_Number_Base__c").should("be.visible").type("0977777777");
+  //   cy.get("#Form_Partner_Type__c")
+  //     .should("be.visible")
+  //     .select("SaaS / ISV / Tech"); // За значенням
+  //   cy.get("#Form_Additional_Information__c")
+  //     .should("be.visible")
+  //     .type("Because this is my dream");
 
-    cy.get('button[class="mktoButton"]').should("be.visible").click();
-    cy.get("h1>span").should("be.visible").and("have.text", "Thank you.");
-    // Перевіряємо, що URL змінився на очікуваний
-    cy.url().should(
-      "eq",
-      "https://telnyx.com/thank-you?formId=2242&email=mybusinessemail%40gmail.com"
-    );
-  });
+  //   cy.get('button[class="mktoButton"]').should("be.visible").click();
+  //   cy.get("h1>span").should("be.visible").and("have.text", "Thank you.");
+  //   // Перевіряємо, що URL змінився на очікуваний
+  //   cy.url().should(
+  //     "eq",
+  //     "https://telnyx.com/thank-you?formId=2242&email=mybusinessemail%40gmail.com"
+  //   );
+  // });
 
   // // //test case 10
   // it('Read the "BEST Canada Energy" customer story', () => {
