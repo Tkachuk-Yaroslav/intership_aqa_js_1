@@ -23,17 +23,9 @@ class MainPage {
     return cy.get("#header-sign-up");
   }
 
-  //   get loginButton() {
-  //     return cy.get(".radius");
-  //   }
-
-  //   setUsernameInput(value) {
-  //     this.username.type(value);
-  //   }
-
-  //   setPasswordInput(value) {
-  //     this.password.type(value);
-  //   }
+  get partnershipsLink() {
+    return cy.get('div[aria-hidden="true"]>a[href="/partnerships"]');
+  }
 
   clickOnSolutionsLink() {
     this.solutionsLink.click({ force: true });
@@ -53,6 +45,10 @@ class MainPage {
 
   clickOnShopLink() {
     this.shopLink.click({ force: true });
+  }
+
+  clickOnPartnershipsLink() {
+    this.partnershipsLink.click({ force: true });
   }
 
   shouldHeadTitle() {
