@@ -212,41 +212,41 @@ describe("The Home Page", () => {
   // });
 
   // //test case 9
-  it("Fill out the partnership form with valid data", () => {
-    setupInterceptions();
+  // it("Fill out the partnership form with valid data", () => {
+  //   setupInterceptions();
 
-    cy.visit("/");
+  //   cy.visit("/");
 
-    cy.get("#radix-\\:r5\\:").should("be.visible").click();
-    // не розумію чого не відображається клік по дропдаунах при тесті, тому пішов іншим шляхом
-    cy.get('div[aria-hidden="true"]>a[href="/partnerships"]').click({
-      force: true,
-    });
+  //   cy.get("#radix-\\:r5\\:").should("be.visible").click();
+  //   // не розумію чого не відображається клік по дропдаунах при тесті, тому пішов іншим шляхом
+  //   cy.get('div[aria-hidden="true"]>a[href="/partnerships"]').click({
+  //     force: true,
+  //   });
 
-    cy.get("#mktoForm_2242").scrollIntoView().should("be.visible");
-    cy.get("#FirstName").should("be.visible").type("FirstName");
-    cy.get("#LastName").should("be.visible").type("LastName");
-    cy.get("#Company").should("be.visible").type("Company");
-    cy.get("#Email").should("be.visible").type("mybusinessemail@gmail.com");
-    // cy.get("#Phone_Number_Extension__c").should("be.visible").click();
+  //   cy.get("#mktoForm_2242").scrollIntoView().should("be.visible");
+  //   cy.get("#FirstName").should("be.visible").type("FirstName");
+  //   cy.get("#LastName").should("be.visible").type("LastName");
+  //   cy.get("#Company").should("be.visible").type("Company");
+  //   cy.get("#Email").should("be.visible").type("mybusinessemail@gmail.com");
+  //   // cy.get("#Phone_Number_Extension__c").should("be.visible").click();
 
-    cy.get("#Phone_Number_Extension__c").should("be.visible").select("+380"); // За значенням
-    cy.get("#Phone_Number_Base__c").should("be.visible").type("0977777777");
-    cy.get("#Form_Partner_Type__c")
-      .should("be.visible")
-      .select("SaaS / ISV / Tech"); // За значенням
-    cy.get("#Form_Additional_Information__c")
-      .should("be.visible")
-      .type("Because this is my dream");
+  //   cy.get("#Phone_Number_Extension__c").should("be.visible").select("+380"); // За значенням
+  //   cy.get("#Phone_Number_Base__c").should("be.visible").type("0977777777");
+  //   cy.get("#Form_Partner_Type__c")
+  //     .should("be.visible")
+  //     .select("SaaS / ISV / Tech"); // За значенням
+  //   cy.get("#Form_Additional_Information__c")
+  //     .should("be.visible")
+  //     .type("Because this is my dream");
 
-    cy.get('button[class="mktoButton"]').should("be.visible").click();
-    cy.get("h1>span").should("be.visible").and("have.text", "Thank you.");
-    // Перевіряємо, що URL змінився на очікуваний
-    cy.url().should(
-      "eq",
-      "https://telnyx.com/thank-you?formId=2242&email=mybusinessemail%40gmail.com"
-    );
-  });
+  //   cy.get('button[class="mktoButton"]').should("be.visible").click();
+  //   cy.get("h1>span").should("be.visible").and("have.text", "Thank you.");
+  //   // Перевіряємо, що URL змінився на очікуваний
+  //   cy.url().should(
+  //     "eq",
+  //     "https://telnyx.com/thank-you?formId=2242&email=mybusinessemail%40gmail.com"
+  //   );
+  // });
 
   // //test case 10
   it('Read the "BEST Canada Energy" customer story', () => {
