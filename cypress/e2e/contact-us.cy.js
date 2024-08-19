@@ -1,17 +1,28 @@
 import { setupInterceptions } from "../support/interceptors";
 
 import MainPage from "../../pages/main.page.js";
-import ContactUsPage from "../../pages/contactUs.page.js";
+import CareersPage from "../../pages/careers.page.js";
 
-describe("The Home Page", () => {
-  //teest case 5
-  it("Form display on the Contact Us page", () => {
+describe("Testing contact us page", () => {
+  //test case 4
+  it("Go to the Controller (Remote) job on the careers page", () => {
     setupInterceptions();
 
     cy.visit("/");
 
-    MainPage.clickOnContactUsLink();
+    MainPage.scrollToCareersLink();
+    MainPage.clickOnCareersLink();
 
-    ContactUsPage.shouldFormBeVisible();
+    CareersPage.removeAttr("target");
+    CareersPage.scrollToJobLink();
+    careersPage.clickOnJobLink();
+
+    // Використання cy.origin для взаємодії з іншим доменом
+    cy.origin("https://boards.greenhouse.io", () => {
+      cy.get('h1[class="app-title"]').should(
+        "have.text",
+        "Controller (Remote)"
+      );
+    });
   });
 });
