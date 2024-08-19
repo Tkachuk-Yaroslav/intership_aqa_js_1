@@ -27,6 +27,10 @@ class MainPage {
     return cy.get('div[aria-hidden="true"]>a[href="/partnerships"]');
   }
 
+  get customerStoriesLink() {
+    return cy.get('div[aria-hidden="true"]>a[href="/customer-stories"]');
+  }
+
   clickOnSolutionsLink() {
     this.solutionsLink.click({ force: true });
   }
@@ -49,6 +53,10 @@ class MainPage {
 
   clickOnPartnershipsLink() {
     this.partnershipsLink.click({ force: true });
+  }
+
+  clickOnCustomerStoriesLink() {
+    this.customerStoriesLink.click({ force: true });
   }
 
   shouldHeadTitle() {

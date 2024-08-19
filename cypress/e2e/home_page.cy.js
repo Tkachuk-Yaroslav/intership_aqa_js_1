@@ -14,6 +14,7 @@ import ContactUsPage from "../../pages/contactUs.page.js";
 import ShopTelnyxPage from "../../pages/shopTelnyx.page.js";
 import PartnershipsPage from "../../pages/partnerships.page.js";
 import ThankYouPage from "../../pages/thankYou.page.js";
+import CustomerStoriesPage from "../../pages/customerStories.page.js";
 
 describe("The Home Page", () => {
   // //test case 1
@@ -268,80 +269,90 @@ describe("The Home Page", () => {
   //   // //   .and("have.text", "Your cart is empty");
   // });
 
-  //test case 9
-  it("Fill out the partnership form with valid data", () => {
-    setupInterceptions();
-
-    cy.visit("/");
-
-    // cy.get("#radix-\\:r5\\:").should("be.visible").click();
-    // не розумію чого не відображається клік по дропдаунах при тесті, тому пішов іншим шляхом
-    MainPage.clickOnPartnershipsLink();
-    // // cy.get('div[aria-hidden="true"]>a[href="/partnerships"]').click({
-    // //   force: true,
-    // // });
-
-    PartnershipsPage.scrollToPartnershipForm();
-    PartnershipsPage.shouldPartnershipFormBeVisible();
-
-    PartnershipsPage.typeFirstName("FirstName");
-    PartnershipsPage.typeLastName("LastName");
-
-    PartnershipsPage.typeCompantField("Company");
-    PartnershipsPage.typeEmailField("mybusinessemail@gmail.com");
-    // // cy.get("#mktoForm_2242").scrollIntoView().should("be.visible");
-    // // cy.get("#FirstName").should("be.visible").type("FirstName");
-    // // cy.get("#LastName").should("be.visible").type("LastName");
-    // // cy.get("#Company").should("be.visible").type("Company");
-    // // cy.get("#Email").should("be.visible").type("mybusinessemail@gmail.com");
-    // cy.get("#Phone_Number_Extension__c").should("be.visible").click();
-
-    PartnershipsPage.selectCountryField("+380");
-    PartnershipsPage.typePhoneField("0977777777");
-    // // cy.get("#Phone_Number_Extension__c").should("be.visible").select("+380"); // За значенням
-    // // cy.get("#Phone_Number_Base__c").should("be.visible").type("0977777777");
-    PartnershipsPage.selectPartnerType("SaaS / ISV / Tech");
-    // // cy.get("#Form_Partner_Type__c")
-    // //   .should("be.visible")
-    // //   .select("SaaS / ISV / Tech"); // За значенням
-    PartnershipsPage.typeAddInfoField("Because this is my dream");
-    // // cy.get("#Form_Additional_Information__c")
-    // //   .should("be.visible")
-    // //   .type("Because this is my dream");
-    PartnershipsPage.clickOnApplyBtn();
-    // // cy.get('button[class="mktoButton"]').should("be.visible").click();
-    ThankYouPage.shouldTitle(["be.visible", "have.text", "Thank you."]);
-    // // cy.get("h1>span").should("be.visible").and("have.text", "Thank you.");
-    // Перевіряємо, що URL змінився на очікуваний
-    ThankYouPage.compareUrl(
-      "https://telnyx.com/thank-you?formId=2242&email=mybusinessemail%40gmail.com"
-    );
-    // // cy.url().should(
-    // //   "eq",
-    // //   "https://telnyx.com/thank-you?formId=2242&email=mybusinessemail%40gmail.com"
-    // // );
-  });
-
-  // // //test case 10
-  // it('Read the "BEST Canada Energy" customer story', () => {
+  // //test case 9
+  // it("Fill out the partnership form with valid data", () => {
   //   setupInterceptions();
 
   //   cy.visit("/");
 
+  //   // cy.get("#radix-\\:r5\\:").should("be.visible").click();
   //   // не розумію чого не відображається клік по дропдаунах при тесті, тому пішов іншим шляхом
-  //   cy.get('div[aria-hidden="true"]>a[href="/customer-stories"]').click({
-  //     force: true,
-  //   });
+  //   MainPage.clickOnPartnershipsLink();
+  //   // // cy.get('div[aria-hidden="true"]>a[href="/partnerships"]').click({
+  //   // //   force: true,
+  //   // // });
 
-  //   cy.get("#4wrHkkvEgQncM8SCiLi7ZE").scrollIntoView().click({ force: true });
+  //   PartnershipsPage.scrollToPartnershipForm();
+  //   PartnershipsPage.shouldPartnershipFormBeVisible();
 
-  //   cy.url().should(
-  //     "eq",
-  //     "https://telnyx.com/customer-stories/best-canada-energy"
+  //   PartnershipsPage.typeFirstName("FirstName");
+  //   PartnershipsPage.typeLastName("LastName");
+
+  //   PartnershipsPage.typeCompantField("Company");
+  //   PartnershipsPage.typeEmailField("mybusinessemail@gmail.com");
+  //   // // cy.get("#mktoForm_2242").scrollIntoView().should("be.visible");
+  //   // // cy.get("#FirstName").should("be.visible").type("FirstName");
+  //   // // cy.get("#LastName").should("be.visible").type("LastName");
+  //   // // cy.get("#Company").should("be.visible").type("Company");
+  //   // // cy.get("#Email").should("be.visible").type("mybusinessemail@gmail.com");
+  //   // cy.get("#Phone_Number_Extension__c").should("be.visible").click();
+
+  //   PartnershipsPage.selectCountryField("+380");
+  //   PartnershipsPage.typePhoneField("0977777777");
+  //   // // cy.get("#Phone_Number_Extension__c").should("be.visible").select("+380"); // За значенням
+  //   // // cy.get("#Phone_Number_Base__c").should("be.visible").type("0977777777");
+  //   PartnershipsPage.selectPartnerType("SaaS / ISV / Tech");
+  //   // // cy.get("#Form_Partner_Type__c")
+  //   // //   .should("be.visible")
+  //   // //   .select("SaaS / ISV / Tech"); // За значенням
+  //   PartnershipsPage.typeAddInfoField("Because this is my dream");
+  //   // // cy.get("#Form_Additional_Information__c")
+  //   // //   .should("be.visible")
+  //   // //   .type("Because this is my dream");
+  //   PartnershipsPage.clickOnApplyBtn();
+  //   // // cy.get('button[class="mktoButton"]').should("be.visible").click();
+  //   ThankYouPage.shouldTitle(["be.visible", "have.text", "Thank you."]);
+  //   // // cy.get("h1>span").should("be.visible").and("have.text", "Thank you.");
+  //   // Перевіряємо, що URL змінився на очікуваний
+  //   ThankYouPage.compareUrl(
+  //     "https://telnyx.com/thank-you?formId=2242&email=mybusinessemail%40gmail.com"
   //   );
-
-  //   cy.get("div>h1")
-  //     .should("be.visible")
-  //     .and("have.text", "BEST Canada Energy");
+  //   // // cy.url().should(
+  //   // //   "eq",
+  //   // //   "https://telnyx.com/thank-you?formId=2242&email=mybusinessemail%40gmail.com"
+  //   // // );
   // });
+
+  // //test case 10
+  it('Read the "BEST Canada Energy" customer story', () => {
+    setupInterceptions();
+
+    cy.visit("/");
+
+    // не розумію чого не відображається клік по дропдаунах при тесті, тому пішов іншим шляхом
+    MainPage.clickOnCustomerStoriesLink();
+    // // cy.get('div[aria-hidden="true"]>a[href="/customer-stories"]').click({
+    // //   force: true,
+    // // });
+    CustomerStoriesPage.scrollToReadCanadaLink();
+    CustomerStoriesPage.clickOnReadCanadaLink();
+    // cy.get("#4wrHkkvEgQncM8SCiLi7ZE").scrollIntoView().click({ force: true });
+
+    CustomerStoriesPage.compareUrl(
+      "https://telnyx.com/customer-stories/best-canada-energy"
+    );
+    // // cy.url().should(
+    // //   "eq",
+    // //   "https://telnyx.com/customer-stories/best-canada-energy"
+    // // );
+
+    CustomerStoriesPage.shouldSelectedStoryTitle([
+      "be.visible",
+      "have.text",
+      "BEST Canada Energy",
+    ]);
+    // // cy.get("div>h1")
+    // //   .should("be.visible")
+    // //   .and("have.text", "BEST Canada Energy");
+  });
 });
