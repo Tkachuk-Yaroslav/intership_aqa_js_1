@@ -177,11 +177,48 @@ describe("The Home Page", () => {
   //   cy.get("h1>span", { timeout: 10000 }).should("have.text", "One last step");
   // });
 
-  //test case 7
-  it("Add the product to the cart on the store page", () => {
+  // //test case 7
+  // it("Add the product to the cart on the store page", () => {
+  //   setupInterceptions();
+
+  //   cy.visit("/");
+  // MainPage.removeAttrInShopLink("target");
+  // MainPage.clickOnShopLink();
+  //   // // cy.get('a[href="https://shop.telnyx.com"]')
+  //   // //   .invoke("removeAttr", "target")
+  //   // //   .click({ force: true });
+
+  //   ShopTelnyxPage.scrollToShopifySection();
+  //   // // Без використання cy.origin()
+  //   // // cy.get(
+  //   // //   "#shopify-section-template--14828910772302__featured-collection-0 > div > div > div > h2"
+  //   // // ).scrollIntoView();
+
+  //   ShopTelnyxPage.clickOnAddItemBtn();
+  //   // // cy.get(
+  //   // //   "#quick-add-template--14828910772302__featured-collection-06960027533390-submit"
+  //   // // ).click();
+
+  //   ShopTelnyxPage.shouldCartDriwerBeVisible();
+  //   // cy.get("cart-drawer.drawer.animate.active").should("be.visible");
+  // ShopTelnyxPage.shouldAddedItemLink([
+  //   "be.visible",
+  //   "have.text",
+  //   "Telnyx Classic Hat",
+  // ]);
+  //   // // cy.get(
+  //   // //   'td[class="cart-item__details"]>a[href="/products/telnyx-classic-hat?variant=40466321965134"]'
+  //   // // )
+  //   // //   .should("be.visible")
+  //   // //   .and("have.text", "Telnyx Classic Hat");
+  // });
+
+  //test case 8
+  it("Delete the product from the cart on the store page", () => {
     setupInterceptions();
 
     cy.visit("/");
+
     MainPage.removeAttrInShopLink("target");
     MainPage.clickOnShopLink();
     // // cy.get('a[href="https://shop.telnyx.com"]')
@@ -189,7 +226,7 @@ describe("The Home Page", () => {
     // //   .click({ force: true });
 
     ShopTelnyxPage.scrollToShopifySection();
-    // // Без використання cy.origin()
+    // // // Без використання cy.origin()
     // // cy.get(
     // //   "#shopify-section-template--14828910772302__featured-collection-0 > div > div > div > h2"
     // // ).scrollIntoView();
@@ -200,7 +237,8 @@ describe("The Home Page", () => {
     // // ).click();
 
     ShopTelnyxPage.shouldCartDriwerBeVisible();
-    // cy.get("cart-drawer.drawer.animate.active").should("be.visible");
+    // // cy.get("cart-drawer.drawer.animate.active").should("be.visible");
+
     ShopTelnyxPage.shouldAddedItemLink([
       "be.visible",
       "have.text",
@@ -211,42 +249,22 @@ describe("The Home Page", () => {
     // // )
     // //   .should("be.visible")
     // //   .and("have.text", "Telnyx Classic Hat");
+
+    ShopTelnyxPage.clickOnRemoveAddedItemBtn();
+    // // cy.get("#CartDrawer-Remove-1>button").click();
+
+    ShopTelnyxPage.shouldEmptyCartWrapBeVisible();
+    // // cy.get('div[class="drawer__inner-empty"]').should("be.visible");
+
+    ShopTelnyxPage.shouldEmptyCartTitle([
+      "be.visible",
+      "have.text",
+      "Your cart is empty",
+    ]);
+    // // cy.get('h2[class="cart__empty-text"]')
+    // //   .should("be.visible")
+    // //   .and("have.text", "Your cart is empty");
   });
-
-  // //test case 8
-  // it("Delete the product from the cart on the store page", () => {
-  //   setupInterceptions();
-
-  //   cy.visit("/");
-
-  //   cy.get('a[href="https://shop.telnyx.com"]')
-  //     .invoke("removeAttr", "target")
-  //     .click({ force: true });
-
-  //   // Без використання cy.origin()
-  //   cy.get(
-  //     "#shopify-section-template--14828910772302__featured-collection-0 > div > div > div > h2"
-  //   ).scrollIntoView();
-
-  //   cy.get(
-  //     "#quick-add-template--14828910772302__featured-collection-06960027533390-submit"
-  //   ).click();
-
-  //   cy.get("cart-drawer.drawer.animate.active").should("be.visible");
-  //   cy.get(
-  //     'td[class="cart-item__details"]>a[href="/products/telnyx-classic-hat?variant=40466321965134"]'
-  //   )
-  //     .should("be.visible")
-  //     .and("have.text", "Telnyx Classic Hat");
-
-  //   cy.get("#CartDrawer-Remove-1>button").click();
-
-  //   cy.get('div[class="drawer__inner-empty"]').should("be.visible");
-
-  //   cy.get('h2[class="cart__empty-text"]')
-  //     .should("be.visible")
-  //     .and("have.text", "Your cart is empty");
-  // });
 
   // //test case 9
   // it("Fill out the partnership form with valid data", () => {

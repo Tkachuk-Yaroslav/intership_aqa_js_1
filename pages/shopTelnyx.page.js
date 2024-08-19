@@ -21,8 +21,24 @@ class ShopTelnyxPage {
     );
   }
 
+  get removeAddedItemBtn() {
+    return cy.get("#CartDrawer-Remove-1>button");
+  }
+
+  get emptyCartWrap() {
+    return cy.get('div[class="drawer__inner-empty"]');
+  }
+
+  get emptyCartTitle() {
+    return cy.get('h2[class="cart__empty-text"]');
+  }
+
   clickOnAddItemBtn() {
     this.addItemBtn.click();
+  }
+
+  clickOnRemoveAddedItemBtn() {
+    this.removeAddedItemBtn.click();
   }
 
   scrollToShopifySection() {
@@ -33,8 +49,16 @@ class ShopTelnyxPage {
     this.cartDrawer.should("be.visible");
   }
 
+  shouldEmptyCartWrapBeVisible() {
+    this.emptyCartWrap.should("be.visible");
+  }
+
   shouldAddedItemLink(arrValue) {
     this.addedItemLink.should(arrValue[0]).and(arrValue[1], arrValue[2]);
+  }
+
+  shouldEmptyCartTitle(arrValue) {
+    this.emptyCartTitle.should(arrValue[0]).and(arrValue[1], arrValue[2]);
   }
 }
 
