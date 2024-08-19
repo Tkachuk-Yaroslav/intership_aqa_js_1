@@ -123,44 +123,58 @@ describe("The Home Page", () => {
   //   });
   // });
 
-  //teest case 5
-  it("Form display on the Contact Us page", () => {
-    setupInterceptions();
-
-    cy.visit("/");
-
-    MainPage.clickOnContactUsLink();
-    // cy.get('div[class="c-glDvHT"]>a[href="/contact-us"]').click({
-    //   force: true,
-    // });
-
-    ContactUsPage.shouldFormBeVisible();
-    // cy.get("#mktoForm_1987").should("be.visible");
-  });
-
-  // //test case 6
-  // it("Sign up to Telnyx with valid credentials", () => {
+  // //teest case 5
+  // it("Form display on the Contact Us page", () => {
   //   setupInterceptions();
 
   //   cy.visit("/");
 
-  //   cy.get("#header-sign-up").click({ force: true });
+  //   MainPage.clickOnContactUsLink();
+  //   // cy.get('div[class="c-glDvHT"]>a[href="/contact-us"]').click({
+  //   //   force: true,
+  //   // });
 
-  //   // cy.get("#email").click().type("asd@asd");
-  //   cy.get("#email").as("emailField").click({ force: true });
-  //   cy.get("@emailField").type("emailisnotaprobl@gmail.com");
-  //   cy.get("#first_name").click().type("Tester");
-  //   cy.get("#last_name").click().type("Aqa");
-  //   cy.get("#password").click().type("Qwe123*qwe123");
-
-  //   cy.get("#terms_and_conditions").click();
-  //   cy.get(
-  //     'button[class="c-kDQqQr c-kDQqQr-fwzCzT-background-light c-kDQqQr-cOvXws-cv c-ddSKil"]'
-  //   ).click();
-
-  //   //вибиває помилку замість переадресації
-  //   cy.get("h1>span", { timeout: 10000 }).should("have.text", "One last step");
+  //   ContactUsPage.shouldFormBeVisible();
+  //   // cy.get("#mktoForm_1987").should("be.visible");
   // });
+
+  //test case 6
+  it("Sign up to Telnyx with valid credentials", () => {
+    setupInterceptions();
+
+    cy.visit("/");
+
+    MainPage.clickOnSignUpBtn();
+    // cy.get("#header-sign-up").click({ force: true });
+
+    SignUpPage.clickOnEmailField();
+    SignUpPage.typeInEmailField("emailisnotaprobl@gmail.com");
+
+    SignUpPage.clickOnFirstName();
+    SignUpPage.typeInFirstName();
+
+    SignUpPage.clickOnLastName();
+    SignUpPage.typeInLastName();
+
+    SignUpPage.clickOnPassword();
+    SignUpPage.typeInPassword();
+
+    SignUpPage.clickOnTermsCheckbox();
+    SignUpPage.clickOnSignUpBtn();
+    // cy.get("#email").as("emailField").click({ force: true });
+    // cy.get("@emailField").type("emailisnotaprobl@gmail.com");
+    // cy.get("#first_name").click().type("Tester");
+    // cy.get("#last_name").click().type("Aqa");
+    // cy.get("#password").click().type("Qwe123*qwe123");
+
+    // cy.get("#terms_and_conditions").click();
+    // cy.get(
+    //   'button[class="c-kDQqQr c-kDQqQr-fwzCzT-background-light c-kDQqQr-cOvXws-cv c-ddSKil"]'
+    // ).click();
+
+    //вибиває помилку замість переадресації
+    cy.get("h1>span", { timeout: 10000 }).should("have.text", "One last step");
+  });
 
   // //test case 7
   // it("Add the product to the cart on the store page", () => {

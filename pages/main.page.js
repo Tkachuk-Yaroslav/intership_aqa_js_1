@@ -15,6 +15,10 @@ class MainPage {
     return cy.get('div[class="c-glDvHT"]>a[href="/contact-us"]');
   }
 
+  get signUpBtn() {
+    return cy.get("#header-sign-up");
+  }
+
   //   get loginButton() {
   //     return cy.get(".radius");
   //   }
@@ -37,6 +41,10 @@ class MainPage {
 
   clickOnContactUsLink() {
     this.contactUsLink.click({ force: true });
+  }
+
+  clickOnSignUpBtn() {
+    this.signUpBtn.click({ force: true });
   }
 
   shouldHeadTitle() {
