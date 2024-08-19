@@ -80,15 +80,15 @@ export function setupInterceptions() {
     }
   );
 
-  cy.intercept(
-    {
-      method: "GET",
-      url: "https://telnyx.com/careers",
-    },
-    (req) => {
-      req.reply({ statusCode: 304 });
-    }
-  );
+  // cy.intercept(
+  //   {
+  //     method: "GET",
+  //     url: "https://telnyx.com/careers",
+  //   },
+  //   (req) => {
+  //     req.reply({ statusCode: 304 });
+  //   }
+  // );
 
   cy.intercept(
     {

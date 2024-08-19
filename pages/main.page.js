@@ -7,6 +7,10 @@ class MainPage {
     return cy.get("div>h1");
   }
 
+  get careersLink() {
+    return cy.get('a[href="/careers"]');
+  }
+
   //   get loginButton() {
   //     return cy.get(".radius");
   //   }
@@ -23,8 +27,16 @@ class MainPage {
     this.solutionsLink.click({ force: true });
   }
 
+  clickOnCareersLink() {
+    this.careersLink.click({ force: true });
+  }
+
   shouldHeadTitle() {
     this.headTitle.should("have.text", "Connectivity reimagined.");
+  }
+
+  scrollToCareersLink() {
+    this.careersLink.scrollIntoView();
   }
 }
 

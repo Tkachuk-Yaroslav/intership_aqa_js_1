@@ -9,6 +9,7 @@ import { setupInterceptions } from "../support/interceptors";
 import SignUpPage from "../../pages/signUp.page.js";
 import MainPage from "../../pages/main.page.js";
 import SolutionsPage from "../../pages/solutions.page.js";
+import CareersPage from "../../pages/careers.page.js";
 
 describe("The Home Page", () => {
   // //test case 1
@@ -69,53 +70,57 @@ describe("The Home Page", () => {
   //   // );
   // });
 
-  //test case 3
-  it("Check the transition to the main page after clicking on the logo", () => {
-    setupInterceptions();
-
-    cy.visit("/");
-
-    MainPage.clickOnSolutionsLink();
-    // cy.get('a[href="/solutions"]').click({ force: true });
-
-    SolutionsPage.shouldSolutionsHeader();
-    // cy.get('h1[class="c-PJLV c-fGbiyG c-PJLV-cHtIMp-dark-false"]').should(
-    //   "have.text",
-    //   "Solutions for scaling your business"
-    // );
-
-    SolutionsPage.clickOnLogo();
-    // cy.get(
-    //   "#__next > div > header > div > div > div.c-buvHyO.c-buvHyO-idbhasO-css > a"
-    // ).click();
-
-    MainPage.shouldHeadTitle();
-    // cy.get("div>h1").should("have.text", "Connectivity reimagined.");
-  });
-
-  // //test case 4
-  // it("Go to the Controller (Remote) job on the careers page", () => {
+  // //test case 3
+  // it("Check the transition to the main page after clicking on the logo", () => {
   //   setupInterceptions();
 
   //   cy.visit("/");
 
-  //   cy.get('a[href="/careers"]').scrollIntoView().click({ force: true });
-  //   cy.get('a[href="https://boards.greenhouse.io/telnyx54/jobs/5968196003"]')
-  //     .invoke("removeAttr", "target")
-  //     .scrollIntoView()
-  //     .click({ force: true });
+  //   MainPage.clickOnSolutionsLink();
+  //   // cy.get('a[href="/solutions"]').click({ force: true });
 
-  //   //видає помилку - заголовок на новій вкладці, пише що не знайдено
-  //   // cy.get('h1[class="app-title"]').should("have.text", "Controller (Remote)");
+  //   SolutionsPage.shouldSolutionsHeader();
+  //   // cy.get('h1[class="c-PJLV c-fGbiyG c-PJLV-cHtIMp-dark-false"]').should(
+  //   //   "have.text",
+  //   //   "Solutions for scaling your business"
+  //   // );
 
-  //   // Використання cy.origin для взаємодії з іншим доменом
-  //   cy.origin("https://boards.greenhouse.io", () => {
-  //     cy.get('h1[class="app-title"]').should(
-  //       "have.text",
-  //       "Controller (Remote)"
-  //     );
-  //   });
+  //   SolutionsPage.clickOnLogo();
+  //   // cy.get(
+  //   //   "#__next > div > header > div > div > div.c-buvHyO.c-buvHyO-idbhasO-css > a"
+  //   // ).click();
+
+  //   MainPage.shouldHeadTitle();
+  //   // cy.get("div>h1").should("have.text", "Connectivity reimagined.");
   // });
+
+  //test case 4
+  it("Go to the Controller (Remote) job on the careers page", () => {
+    setupInterceptions();
+
+    cy.visit("/");
+
+    MainPage.scrollToCareersLink();
+    MainPage.clickOnCareersLink();
+
+    CareersPage.removeAttr("target");
+    CareersPage.scrollToJobLink();
+    CareersPage.clickOnJobLink();
+
+    // // cy.get('a[href="/careers"]').scrollIntoView().click({ force: true });
+    // // cy.get('a[href="https://boards.greenhouse.io/telnyx54/jobs/5968196003"]')
+    // //   .invoke("removeAttr", "target")
+    // //   .scrollIntoView()
+    // //   .click({ force: true });
+
+    // Використання cy.origin для взаємодії з іншим доменом
+    cy.origin("https://boards.greenhouse.io", () => {
+      cy.get('h1[class="app-title"]').should(
+        "have.text",
+        "Controller (Remote)"
+      );
+    });
+  });
 
   // //teest case 5
   // it("Form display on the Contact Us page", () => {
