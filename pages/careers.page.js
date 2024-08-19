@@ -9,18 +9,6 @@ class CareersPage {
     return cy.get('h1[class="app-title"]');
   }
 
-  //   get loginButton() {
-  //     return cy.get(".radius");
-  //   }
-
-  //   setUsernameInput(value) {
-  //     this.username.type(value);
-  //   }
-
-  //   setPasswordInput(value) {
-  //     this.password.type(value);
-  //   }
-
   removeAttr(value) {
     this.jobLink.invoke("removeAttr", value);
   }

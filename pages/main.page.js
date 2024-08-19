@@ -11,6 +11,10 @@ class MainPage {
     return cy.get('a[href="/careers"]');
   }
 
+  get contactUsLink() {
+    return cy.get('div[class="c-glDvHT"]>a[href="/contact-us"]');
+  }
+
   //   get loginButton() {
   //     return cy.get(".radius");
   //   }
@@ -29,6 +33,10 @@ class MainPage {
 
   clickOnCareersLink() {
     this.careersLink.click({ force: true });
+  }
+
+  clickOnContactUsLink() {
+    this.contactUsLink.click({ force: true });
   }
 
   shouldHeadTitle() {
