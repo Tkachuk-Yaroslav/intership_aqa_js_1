@@ -53,8 +53,24 @@ describe("The Home Page", () => {
   //   // );
   // });
 
-  // //test case 2
-  it("Make a transition to the Solutions page", () => {
+  // // //test case 2
+  // it("Make a transition to the Solutions page", () => {
+  //   setupInterceptions();
+
+  //   cy.visit("/");
+
+  //   MainPage.clickOnSolutionsLink();
+  //   // cy.get('a[href="/solutions"]').click({ force: true });
+
+  //   SolutionsPage.shouldSolutionsHeader();
+  //   // cy.get('h1[class="c-PJLV c-fGbiyG c-PJLV-cHtIMp-dark-false"]').should(
+  //   //   "have.text",
+  //   //   "Solutions for scaling your business"
+  //   // );
+  // });
+
+  //test case 3
+  it("Check the transition to the main page after clicking on the logo", () => {
     setupInterceptions();
 
     cy.visit("/");
@@ -67,27 +83,15 @@ describe("The Home Page", () => {
     //   "have.text",
     //   "Solutions for scaling your business"
     // );
+
+    SolutionsPage.clickOnLogo();
+    // cy.get(
+    //   "#__next > div > header > div > div > div.c-buvHyO.c-buvHyO-idbhasO-css > a"
+    // ).click();
+
+    MainPage.shouldHeadTitle();
+    // cy.get("div>h1").should("have.text", "Connectivity reimagined.");
   });
-
-  // //test case 3
-  // it("Check the transition to the main page after clicking on the logo", () => {
-
-  //   setupInterceptions();
-
-  //   cy.visit("/");
-
-  //   cy.get('a[href="/solutions"]').click({ force: true });
-
-  //   cy.get('h1[class="c-PJLV c-fGbiyG c-PJLV-cHtIMp-dark-false"]').should(
-  //     "have.text",
-  //     "Solutions for scaling your business"
-  //   );
-
-  //   cy.get(
-  //     "#__next > div > header > div > div > div.c-buvHyO.c-buvHyO-idbhasO-css > a"
-  //   ).click();
-  //   cy.get("div>h1").should("have.text", "Connectivity reimagined.");
-  // });
 
   // //test case 4
   // it("Go to the Controller (Remote) job on the careers page", () => {
