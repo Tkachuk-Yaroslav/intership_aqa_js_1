@@ -3,7 +3,7 @@ import { setupInterceptions } from "../support/interceptors";
 import MainPage from "../../pages/main.page.js";
 import SolutionsPage from "../../pages/solutions.page.js";
 
-describe("The Home Page", () => {
+describe("Testing solutions page", () => {
   // //test case 2
   it("Make a transition to the Solutions page", () => {
     setupInterceptions();

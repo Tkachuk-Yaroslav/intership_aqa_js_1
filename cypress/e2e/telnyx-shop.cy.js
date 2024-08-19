@@ -3,7 +3,7 @@ import { setupInterceptions } from "../support/interceptors";
 import MainPage from "../../pages/main.page.js";
 import ShopTelnyxPage from "../../pages/shopTelnyx.page.js";
 
-describe("The Home Page", () => {
+describe("Testing telnyx shop page", () => {
   //test case 7
   it("Add the product to the cart on the store page", () => {
     setupInterceptions();
